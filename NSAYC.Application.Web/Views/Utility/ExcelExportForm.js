@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.04.11
  * 描 述：excel 数据导出	
@@ -13,7 +13,7 @@ var bootstrap = function ($, learun) {
 
     var page = {
         init: function () {
-            var columnModel = NSAYC.frameTab.currentIframe().$('#' + gridId).jfGridGet('settingInfo').headData;
+            var columnModel = learun.frameTab.currentIframe().$('#' + gridId).jfGridGet('settingInfo').headData;
             var $ul = $('.sys_spec_text');
             $.each(columnModel, function (i,item) {
                 var label = item.label;
@@ -39,9 +39,9 @@ var bootstrap = function ($, learun) {
             var value = $(this).attr('data-value');
             exportField.push(value);
         });
-        var columnJson = JSON.stringify(NSAYC.frameTab.currentIframe().$('#' + gridId).jfGridGet('settingInfo').headData);
-        var rowJson = JSON.stringify(NSAYC.frameTab.currentIframe().$('#' + gridId).jfGridGet('showData'));
-        NSAYC.download({
+        var columnJson = JSON.stringify(learun.frameTab.currentIframe().$('#' + gridId).jfGridGet('settingInfo').headData);
+        var rowJson = JSON.stringify(learun.frameTab.currentIframe().$('#' + gridId).jfGridGet('showData'));
+        learun.download({
             method: "POST",
             url: '/Utility/ExportExcel',
             param: {

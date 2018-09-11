@@ -1,6 +1,6 @@
 ﻿namespace NSAYC.Dev.Tool
 {
-    partial class 力软开发小工具
+    partial class 爱养车开发小工具
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -61,7 +61,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // 力软开发小工具
+            // 爱养车开发小工具
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,8 +69,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "力软开发小工具";
-            this.Text = "力软开发小工具";
+            this.Name = "爱养车开发小工具";
+            this.Text = "爱养车开发小工具";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.16
  * 描 述：ajax操作方法
  */
@@ -16,7 +16,7 @@
     $.extend(learun, {
         // http 通信异常的时候调用此方法
         httpErrorLog: function (msg) {
-            NSAYC.log(msg);
+            learun.log(msg);
         },
         // http请求返回数据码
         httpCode: httpCode,
@@ -29,14 +29,14 @@
                 async: true,
                 cache: false,
                 success: function (data) {
-                    if (data.code == NSAYC.httpCode.exception) {
-                        NSAYC.httpErrorLog(data.info);
+                    if (data.code == learun.httpCode.exception) {
+                        learun.httpErrorLog(data.info);
                         data.info = '系统异常，请联系管理员！';
                     }
                     callback(data);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    NSAYC.httpErrorLog(textStatus);
+                    learun.httpErrorLog(textStatus);
                     callback(exres);
                 },
                 beforeSend: function () {
@@ -56,14 +56,14 @@
                 async: false,
                 cache: false,
                 success: function (data) {
-                    if (data.code == NSAYC.httpCode.exception) {
-                        NSAYC.httpErrorLog(data.info);
+                    if (data.code == learun.httpCode.exception) {
+                        learun.httpErrorLog(data.info);
                         data.info = '系统异常，请联系管理员！';
                     }
                     res = data;
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    NSAYC.httpErrorLog(textStatus);
+                    learun.httpErrorLog(textStatus);
                 },
                 beforeSend: function () {
                 },
@@ -82,14 +82,14 @@
                 async: true,
                 cache: false,
                 success: function (data) {
-                    if (data.code == NSAYC.httpCode.exception) {
-                        NSAYC.httpErrorLog(data.info);
+                    if (data.code == learun.httpCode.exception) {
+                        learun.httpErrorLog(data.info);
                         data.info = '系统异常，请联系管理员！';
                     }
                     callback(data);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    NSAYC.httpErrorLog(textStatus);
+                    learun.httpErrorLog(textStatus);
                     callback(exres);
                 },
                 beforeSend: function () {
@@ -108,14 +108,14 @@
                 async: false,
                 cache: false,
                 success: function (data) {
-                    if (data.code == NSAYC.httpCode.exception) {
-                        NSAYC.httpErrorLog(data.info);
+                    if (data.code == learun.httpCode.exception) {
+                        learun.httpErrorLog(data.info);
                         data.info = '系统异常，请联系管理员！';
                     }
                     callback(data);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    NSAYC.httpErrorLog(textStatus);
+                    learun.httpErrorLog(textStatus);
                     callback(exres);
                 },
                 beforeSend: function () {
@@ -134,16 +134,16 @@
                 async: true,
                 cache: false,
                 success: function (res) {
-                    if (res.code == NSAYC.httpCode.success) {
+                    if (res.code == learun.httpCode.success) {
                         callback(res.data);
                     }
                     else {
-                        NSAYC.httpErrorLog(res.info);
+                        learun.httpErrorLog(res.info);
                         callback(null);
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    NSAYC.httpErrorLog(textStatus);
+                    learun.httpErrorLog(textStatus);
                     callback(null);
                 },
                 beforeSend: function () {
@@ -154,35 +154,35 @@
         },
 
         deleteForm:function (url, param, callback) {
-            NSAYC.loading(true, '正在删除数据');
-            NSAYC.httpAsyncPost(url, param, function (res) {
-                NSAYC.loading(false);
-                if (res.code == NSAYC.httpCode.success) {
+            learun.loading(true, '正在删除数据');
+            learun.httpAsyncPost(url, param, function (res) {
+                learun.loading(false);
+                if (res.code == learun.httpCode.success) {
                     if (!!callback) {
                         callback(res);
                     }
-                    NSAYC.alert.success(res.info);
+                    learun.alert.success(res.info);
                 }
                 else {
-                    NSAYC.alert.error(res.info);
-                    NSAYC.httpErrorLog(res.info);
+                    learun.alert.error(res.info);
+                    learun.httpErrorLog(res.info);
                 }
                 layer.close(layer.index);
             });
         },
         postForm:function (url, param, callback) {
-            NSAYC.loading(true, '正在提交数据');
-            NSAYC.httpAsyncPost(url, param, function (res) {
-                NSAYC.loading(false);
-                if (res.code == NSAYC.httpCode.success) {
+            learun.loading(true, '正在提交数据');
+            learun.httpAsyncPost(url, param, function (res) {
+                learun.loading(false);
+                if (res.code == learun.httpCode.success) {
                     if (!!callback) {
                         callback(res);
                     }
-                    NSAYC.alert.success(res.info);
+                    learun.alert.success(res.info);
                 }
                 else {
-                    NSAYC.alert.error(res.info);
-                    NSAYC.httpErrorLog(res.info);
+                    learun.alert.error(res.info);
+                    learun.httpErrorLog(res.info);
                 }
                 layer.close(layer.index);
             });

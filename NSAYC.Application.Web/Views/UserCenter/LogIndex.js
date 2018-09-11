@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.03.22
  * 描 述：个人日志查看
@@ -24,10 +24,10 @@ var bootstrap = function ($, learun) {
         bind: function () {
             $('#datesearch').lrdate({
                 dfdata: [
-                    { name: '今天', begin: function () { return NSAYC.getDate('yyyy-MM-dd 00:00:00') }, end: function () { return NSAYC.getDate('yyyy-MM-dd 23:59:59') } },
-                    { name: '近7天', begin: function () { return NSAYC.getDate('yyyy-MM-dd 00:00:00', 'd', -6) }, end: function () { return NSAYC.getDate('yyyy-MM-dd 23:59:59') } },
-                    { name: '近1个月', begin: function () { return NSAYC.getDate('yyyy-MM-dd 00:00:00', 'm', -1) }, end: function () { return NSAYC.getDate('yyyy-MM-dd 23:59:59') } },
-                    { name: '近3个月', begin: function () { return NSAYC.getDate('yyyy-MM-dd 00:00:00', 'm', -3) }, end: function () { return NSAYC.getDate('yyyy-MM-dd 23:59:59') } },
+                    { name: '今天', begin: function () { return learun.getDate('yyyy-MM-dd 00:00:00') }, end: function () { return learun.getDate('yyyy-MM-dd 23:59:59') } },
+                    { name: '近7天', begin: function () { return learun.getDate('yyyy-MM-dd 00:00:00', 'd', -6) }, end: function () { return learun.getDate('yyyy-MM-dd 23:59:59') } },
+                    { name: '近1个月', begin: function () { return learun.getDate('yyyy-MM-dd 00:00:00', 'm', -1) }, end: function () { return learun.getDate('yyyy-MM-dd 23:59:59') } },
+                    { name: '近3个月', begin: function () { return learun.getDate('yyyy-MM-dd 00:00:00', 'm', -3) }, end: function () { return learun.getDate('yyyy-MM-dd 23:59:59') } },
                 ],
                 // 月
                 mShow: false,
@@ -73,12 +73,12 @@ var bootstrap = function ($, learun) {
         },
         initGird: function () {
             $('#girdtable').jfGrid({
-                url: top.$.rootUrl + '/SystemModule/Log/GetPageListByMy',
+                url: top.$.rootUrl + '/LR_SystemModule/Log/GetPageListByMy',
                 headData: [
                      {
                          label: "操作时间", name: "F_OperateTime", width: 150, align: "left",
                          formatter: function (cellvalue) {
-                             return NSAYC.formatDate(cellvalue, 'yyyy-MM-dd hh:mm:ss');
+                             return learun.formatDate(cellvalue, 'yyyy-MM-dd hh:mm:ss');
                          }
                      },
                     { label: "操作用户", name: "F_OperateAccount", width: 150, align: "left" },

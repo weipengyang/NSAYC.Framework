@@ -80,7 +80,7 @@
         return a(a("<div></div>").html(b)).html()
     }
 
-    // 力软信息扩展
+    // 爱养车信息扩展
     a.fn.jqprintTable = function (f) {
         b = a.extend({}, a.fn.jqprint.defaults, f);
         f = this instanceof jQuery ? this : a(this);

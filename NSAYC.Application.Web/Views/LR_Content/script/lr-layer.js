@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.16
  * 描 述：弹层（基于layer.js-3.0.3）	
  */
@@ -51,7 +51,7 @@
                 content: op.url,
                 skin: dfop.btn == null ? 'lr-layer-nobtn' : 'lr-layer',
                 success: function (layero, index) {
-                    top['layer_' + dfop.id] = NSAYC.iframe($(layero).find('iframe').attr('id'), top.frames);
+                    top['layer_' + dfop.id] = learun.iframe($(layero).find('iframe').attr('id'), top.frames);
                     layero[0].learun_layerid = 'layer_' + dfop.id;
                     //如果底部有按钮添加-确认并关闭窗口勾选按钮
                     if (!!dfop.btn && layero.find('.lr-layer-btn-cb').length == 0) {
@@ -65,7 +65,7 @@
                         flag = dfop.callBack('layer_' + dfop.id);
                     }
                     if (!!flag) {
-                        NSAYC.layerClose('',index);
+                        learun.layerClose('',index);
                     }
                 },
                 end: function () {

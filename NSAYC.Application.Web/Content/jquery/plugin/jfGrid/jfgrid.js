@@ -411,7 +411,7 @@
                         $.jfGrid.renderData($self);
                     }
                     else {
-                        top.NSAYC.alert.warning('请选择需要删除的行!');
+                        top.learun.alert.warning('请选择需要删除的行!');
                     }
                 });
 

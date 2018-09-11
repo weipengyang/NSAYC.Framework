@@ -113,7 +113,7 @@ namespace NSAYC.Util
 
                 SummaryInformation si = PropertySetFactory.CreateSummaryInformation();
                 si.Author = "刘晓雷"; //填加xls文件作者信息
-                si.ApplicationName = "力软信息"; //填加xls文件创建程序信息
+                si.ApplicationName = "爱养车信息"; //填加xls文件创建程序信息
                 si.LastAuthor = "刘晓雷"; //填加xls文件最后保存者信息
                 si.Comments = "刘晓雷"; //填加xls文件作者信息
                 si.Title = "标题信息"; //填加xls文件标题信息

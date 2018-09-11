@@ -1,5 +1,5 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
  * Copyright (c) 2013-2017 上海力 软信息技术有限公司
  * 创建人：力 软-前端开发组
  * 日 期：2017.03.22

@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开 发 框架(http://www.NSAYC.cn)
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开 发 框架(http://www.learun.cn)
  * Copyright (c) 2013-2017 上海力软 信息技术有限公司
- * 创建人：爱养车-前端开发组
+ * 创建人：力软-前端开发组
  * 日 期：2017.05.24
  * 描 述：lr-uploader 表单附件选择插件
  */
@@ -35,17 +35,17 @@
             var $btn = $(this);
             var $self = $btn.parents('.lrUploader-wrap');
             var dfop = $self[0]._lrUploader.dfop;
-            NSAYC.layerForm({
+            learun.layerForm({
                 id: dfop.id,
                 title: dfop.placeholder,
-                url: top.$.rootUrl + '/SystemModule/Annexes/UploadForm?keyVaule=' + dfop.value + "&extensions=" + dfop.extensions,
+                url: top.$.rootUrl + '/LR_SystemModule/Annexes/UploadForm?keyVaule=' + dfop.value + "&extensions=" + dfop.extensions,
                 width: 600,
                 height: 400,
                 maxmin: true,
                 btn: null,
                 end: function () {
-                    NSAYC.httpAsyncGet(top.$.rootUrl + '/SystemModule/Annexes/GetFileNames?folderId=' + dfop.value, function (res) {
-                        if (res.code == NSAYC.httpCode.success) {
+                    learun.httpAsyncGet(top.$.rootUrl + '/LR_SystemModule/Annexes/GetFileNames?folderId=' + dfop.value, function (res) {
+                        if (res.code == learun.httpCode.success) {
                             $('#' + dfop.id).find('.lrUploader-input').text(res.info);
                         }
                     });
@@ -56,10 +56,10 @@
             var $btn = $(this);
             var $self = $btn.parents('.lrUploader-wrap');
             var dfop = $self[0]._lrUploader.dfop;
-            NSAYC.layerForm({
+            learun.layerForm({
                 id: dfop.id,
                 title: dfop.placeholder,
-                url: top.$.rootUrl + '/SystemModule/Annexes/DownForm?keyVaule=' + dfop.value,
+                url: top.$.rootUrl + '/LR_SystemModule/Annexes/DownForm?keyVaule=' + dfop.value,
                 width: 600,
                 height: 400,
                 maxmin: true,
@@ -82,7 +82,7 @@
 
         $.extend(dfop, op || {});
         dfop.id = $this.attr('id');
-        dfop.value = NSAYC.newGuid();
+        dfop.value = learun.newGuid();
 
         $this[0]._lrUploader = { dfop: dfop };
         $.lrUploader.init($this);
@@ -92,8 +92,8 @@
         var $self = $(this);
         var dfop = $self[0]._lrUploader.dfop;
         dfop.value = value;
-        NSAYC.httpAsyncGet(top.$.rootUrl + '/SystemModule/Annexes/GetFileNames?folderId=' + dfop.value, function (res) {
-            if (res.code == NSAYC.httpCode.success) {
+        learun.httpAsyncGet(top.$.rootUrl + '/LR_SystemModule/Annexes/GetFileNames?folderId=' + dfop.value, function (res) {
+            if (res.code == learun.httpCode.success) {
                 $('#' + dfop.id).find('.lrUploader-input').text(res.info);
             }
         });

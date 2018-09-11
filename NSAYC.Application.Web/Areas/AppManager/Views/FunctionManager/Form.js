@@ -1,11 +1,4 @@
 ﻿
-/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
- * 日 期：2018.03.16
- * 描 述：功能模块	
- */
 var keyValue = request('keyValue');
 var type = request('type');
 
@@ -33,7 +26,7 @@ var bootstrap = function ($, learun) {
 
             // 选择图标
             $('#selectIcon').on('click', function () {
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: 'iconForm',
                     title: '选择图标',
                     url: top.$.rootUrl + '/Utility/AppIcon',
@@ -55,13 +48,13 @@ var bootstrap = function ($, learun) {
             $('#F_FormId').lrselect({
                 text: 'F_Name',
                 value: 'F_Id',
-                url: top.$.rootUrl + '/FormModule/Custmerform/GetSchemeInfoList',
+                url: top.$.rootUrl + '/LR_FormModule/Custmerform/GetSchemeInfoList',
                 maxHeight: 180,
                 allowSearch: true,
                 select: function (item) {
                     if (item) {
                         lrcomponts = [];
-                        $.lrSetForm(top.$.rootUrl + '/FormModule/Custmerform/GetFormData?keyValue=' + item.F_Id, function (data) {
+                        $.lrSetForm(top.$.rootUrl + '/LR_FormModule/Custmerform/GetFormData?keyValue=' + item.F_Id, function (data) {
                             var scheme = JSON.parse(data.schemeEntity.F_Scheme);
                             for (var i = 0, l = scheme.data.length; i < l; i++) {
                                 var componts = scheme.data[i].componts;
@@ -109,10 +102,10 @@ var bootstrap = function ($, learun) {
             $('#lr_preview').on('click', function () {
                 var formId = $('#F_FormId').lrselectGet();
                 if (!!formId) {
-                    NSAYC.layerForm({
+                    learun.layerForm({
                         id: 'custmerForm_PreviewForm',
                         title: '预览当前表单',
-                        url: top.$.rootUrl + '/FormModule/Custmerform/PreviewForm?schemeInfoId=' + formId,
+                        url: top.$.rootUrl + '/LR_FormModule/Custmerform/PreviewForm?schemeInfoId=' + formId,
                         width: 800,
                         height: 600,
                         maxmin: true,
@@ -120,7 +113,7 @@ var bootstrap = function ($, learun) {
                     });
                 }
                 else {
-                    NSAYC.alert.warning('请选择表单！');
+                    learun.alert.warning('请选择表单！');
                 }
             });
 

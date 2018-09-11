@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.16
  * 描 述：表单数据验证完整性
  */
@@ -13,7 +13,7 @@
         $this.addClass('lr-field-error');
         $this.parent().append('<div class="lr-field-error-info" title="' + errormsg + '！"><i class="fa fa-info-circle"></i></div>');
         var validatemsg = $this.parent().find('.form-item-title').text() + ' ' + errormsg;
-        NSAYC.alert.error('表单信息输入有误,请检查！</br>' + validatemsg);
+        learun.alert.error('表单信息输入有误,请检查！</br>' + validatemsg);
         if ($this.attr('type') == 'lrselect') {
             $this.on('change', function () {
                 removeErrorMessage($(this));
@@ -48,7 +48,7 @@
 
     $.fn.lrValidform = function () {
         var validateflag = true;
-        var validHelper = NSAYC.validator;
+        var validHelper = learun.validator;
         $(this).find("[isvalid=yes]").each(function () {
             var $this = $(this);
 

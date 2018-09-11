@@ -1,5 +1,5 @@
 ﻿
-/* * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn) * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司 * 创建人：爱养车-前端开发组 * 日 期：2017.03.16 * 描 述：登录页样式表*/html{height: 100%;width: 100%;}
+/* * 爱养车开发框架(http://www.learun.cn) * Copyright (c) 2013-2017 上海爱养车信息技术有限公司 * 创建人：爱养车-前端开发组 * 日 期：2017.03.16 * 描 述：登录页样式表*/html{height: 100%;width: 100%;}
 body{overflow: hidden;margin: 0px;font: 12px/1.5 Lucida Grande,Lucida Sans Unicode,Helvetica Neue,Hiragino Sans GB,Microsoft Yahei,sans-serif;color: #4b4b4b;height: 100%;background-color: #fbfcf8;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;-khtml-user-select: none;user-select: none;}
 input{font-family: '\5b8b\4f53';}
 input:focus, button:focus{outline: none;-moz-outline: none;}

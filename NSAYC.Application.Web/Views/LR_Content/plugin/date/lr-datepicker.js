@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：lrdate 时间段选择器 @YY@-当年 @MM@-当月 @DD@-当天 @JJ@-当季度
  */
@@ -79,7 +79,7 @@
                 var $container = $self.find('#lr_search_date_container_' + dfop.id);
                 var $text = $self.find('#lr_search_date_' + dfop.id);
                 $container.hide();
-                var label = NSAYC.formatDate(dfop._begindate, 'yyyy-MM-dd') + '~' + NSAYC.formatDate(dfop._enddate, 'yyyy-MM-dd');
+                var label = learun.formatDate(dfop._begindate, 'yyyy-MM-dd') + '~' + learun.formatDate(dfop._enddate, 'yyyy-MM-dd');
                 $text.html(label);
 
                 if (!!dfop.selectfn) {
@@ -162,42 +162,42 @@
             var $this = $btnlist.find('.datebtn[data-value="' + value + '"]').addClass('active');
             switch (value) {
                 case 'preM':
-                    var d = NSAYC.getPreMonth();
+                    var d = learun.getPreMonth();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'currentM':
-                    var d = NSAYC.getMonth();
+                    var d = learun.getMonth();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'preJ':
-                    var d = NSAYC.getPreQuarter();
+                    var d = learun.getPreQuarter();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'currentJ':
-                    var d = NSAYC.getCurrentQuarter();
+                    var d = learun.getCurrentQuarter();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'yS':
-                    var d = NSAYC.getFirstHalfYear();
+                    var d = learun.getFirstHalfYear();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'yX':
-                    var d = NSAYC.getSecondHalfYear();
+                    var d = learun.getSecondHalfYear();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'preY':
-                    var d = NSAYC.getPreYear();
+                    var d = learun.getPreYear();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
                 case 'currentY':
-                    var d = NSAYC.getYear();
+                    var d = learun.getYear();
                     dfop._begindate = d.begin;
                     dfop._enddate = d.end;
                     break;
@@ -210,7 +210,7 @@
                     break;
             }
             $container.hide();
-            var label = NSAYC.formatDate(dfop._begindate, 'yyyy-MM-dd') + '~' + NSAYC.formatDate(dfop._enddate, 'yyyy-MM-dd');
+            var label = learun.formatDate(dfop._begindate, 'yyyy-MM-dd') + '~' + learun.formatDate(dfop._enddate, 'yyyy-MM-dd');
             $text.html(label);
             $('#lr_search_date_container_' + dfop.id).removeClass('width');
             $self.find('.lr-search-date-datepicker-content').hide();

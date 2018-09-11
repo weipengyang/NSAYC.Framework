@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.03.16
  * 描 述：window窗口皮肤	
@@ -19,7 +19,7 @@ var bootstrap = function ($, learun) {
             this.bind();
         },
         load: function () {
-            var modulesTree = NSAYC.clientdata.get(['modulesTree']);
+            var modulesTree = learun.clientdata.get(['modulesTree']);
             // 第一级菜单
             var parentId = '0';
             var modules = modulesTree[parentId] || [];
@@ -121,13 +121,13 @@ var bootstrap = function ($, learun) {
             $('#lr_frame_menu a').on('click', function () {
                 var $obj = $(this);
                 var id = $obj.attr('id');
-                var _module = NSAYC.clientdata.get(['modulesMap', id]);
+                var _module = learun.clientdata.get(['modulesMap', id]);
                 switch (_module.F_Target) {
                     case 'iframe':// 窗口
                         meuns.startMenuClick();
                         setTimeout(function () {
-                            if (NSAYC.validator.isNotNull(_module.F_UrlAddress).code) {
-                                NSAYC.frameTab.open(_module);
+                            if (learun.validator.isNotNull(_module.F_UrlAddress).code) {
+                                learun.frameTab.open(_module);
                             }
                             else {
 
@@ -149,13 +149,13 @@ var bootstrap = function ($, learun) {
             $('#lr_second_menu_wrap a').on('click', function () {
                 var $obj = $(this);
                 var id = $obj.attr('id');
-                var _module = NSAYC.clientdata.get(['modulesMap', id]);
+                var _module = learun.clientdata.get(['modulesMap', id]);
                 switch (_module.F_Target) {
                     case 'iframe':// 窗口
                         meuns.startMenuClick();
                         setTimeout(function () {
-                            if (NSAYC.validator.isNotNull(_module.F_UrlAddress).code) {
-                                NSAYC.frameTab.open(_module);
+                            if (learun.validator.isNotNull(_module.F_UrlAddress).code) {
+                                learun.frameTab.open(_module);
                             }
                             else {
 
@@ -206,14 +206,14 @@ var bootstrap = function ($, learun) {
             $('#lr_applist_slidebox .appItem').on('click', function () {
                 var $obj = $(this);
                 var id = $obj.attr('data-id');
-                var _module = NSAYC.clientdata.get(['modulesMap', id]);
-                if (NSAYC.validator.isNotNull(_module.F_UrlAddress).code) {
-                    NSAYC.frameTab.open(_module);
+                var _module = learun.clientdata.get(['modulesMap', id]);
+                if (learun.validator.isNotNull(_module.F_UrlAddress).code) {
+                    learun.frameTab.open(_module);
                 }
             });
 
             $(".lr-applist-slidebox-slider-content li").eq(0).trigger('click');
-            NSAYC.frameTab.leaveFocus();
+            learun.frameTab.leaveFocus();
         },
         startMenuClick: function () {
             var $lr_frame_menu = $('.lr-frame-menu');
@@ -247,18 +247,18 @@ var bootstrap = function ($, learun) {
         openApplist: function () {
             var appBtn = $('#lr_applist_btn');
             if (appBtn.hasClass('off')) {
-                NSAYC.frameTab.leaveFocus();
+                learun.frameTab.leaveFocus();
                 $('#lr_applist_btn').removeClass('off');
                 $('#lr_applist_content').show();
             }
         }
     };
 
-    NSAYC.frameTab.opencallback = function () {
+    learun.frameTab.opencallback = function () {
         meuns.closeApplist();
     };
-    NSAYC.frameTab.closecallback = function () {
-        if (NSAYC.frameTab.iframeId == '') {
+    learun.frameTab.closecallback = function () {
+        if (learun.frameTab.iframeId == '') {
             meuns.openApplist();
         }
     };

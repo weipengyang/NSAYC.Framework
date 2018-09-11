@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 力软 敏捷 开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 版 本 Learun-ADMS V6.1.6.0 力软 敏捷 开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
  * 创建人：力 软- 前端开发组
  * 日 期：2017.03.16
  * 描 述：admin顶层页面操作方法
@@ -45,8 +45,8 @@ var loaddfimg;
                 "hideMethod": "fadeOut"
             };
             // 打开首页模板
-            NSAYC.frameTab.open({ F_ModuleId: '0', F_Icon: 'fa fa-desktop', F_FullName: '首页模板', F_UrlAddress: '/Home/AdminDesktopTemp' }, true);
-            NSAYC.clientdata.init(function () {
+            learun.frameTab.open({ F_ModuleId: '0', F_Icon: 'fa fa-desktop', F_FullName: '首页模板', F_UrlAddress: '/Home/AdminDesktopTemp' }, true);
+            learun.clientdata.init(function () {
                 page.userInit();
                 // 初始页面特例
                 bootstrap($, learun);
@@ -67,7 +67,7 @@ var loaddfimg;
 
         // 登录头像和个人设置
         userInit: function () {
-            var loginInfo = NSAYC.clientdata.get(['userinfo']);
+            var loginInfo = learun.clientdata.get(['userinfo']);
             var headimg;
             if (loginInfo.gender != 0) {
                 headimg = top.$.rootUrl + '/Content/images/head/on-boy.jpg';
@@ -97,20 +97,20 @@ var loaddfimg;
             $('#lr_clearredis_btn').on('click', page.clearredis);
         },
         loginout: function () { // 安全退出
-            NSAYC.layerConfirm("注：您确定要安全退出本次登录吗？", function (r) {
+            learun.layerConfirm("注：您确定要安全退出本次登录吗？", function (r) {
                 if (r) {
-                    NSAYC.loading(true, '退出系统中...');
-                    NSAYC.httpAsyncPost($.rootUrl + '/Login/OutLogin', {}, function (data) {
+                    learun.loading(true, '退出系统中...');
+                    learun.httpAsyncPost($.rootUrl + '/Login/OutLogin', {}, function (data) {
                         window.location.href = $.rootUrl + "/Login/Index";
                     });
                 }
             });
         },
         clearredis: function () {
-            NSAYC.layerConfirm("注：您确定要清空全部后台缓存数据吗？", function (r) {
+            learun.layerConfirm("注：您确定要清空全部后台缓存数据吗？", function (r) {
                 if (r) {
-                    NSAYC.loading(true, '清理缓存数据中...');
-                    NSAYC.httpAsyncPost($.rootUrl + '/Home/ClearRedis', {}, function (data) {
+                    learun.loading(true, '清理缓存数据中...');
+                    learun.httpAsyncPost($.rootUrl + '/Home/ClearRedis', {}, function (data) {
                         window.location.href = $.rootUrl + "/Login/Index";
                     });
                 }
@@ -118,7 +118,7 @@ var loaddfimg;
         },
         openUserCenter: function () {
             // 打开个人中心
-            NSAYC.frameTab.open({ F_ModuleId: '1', F_Icon: 'fa fa-user', F_FullName: '个人中心', F_UrlAddress: '/UserCenter/Index' });
+            learun.frameTab.open({ F_ModuleId: '1', F_Icon: 'fa fa-user', F_FullName: '个人中心', F_UrlAddress: '/UserCenter/Index' });
         },
 
         // 全屏按钮

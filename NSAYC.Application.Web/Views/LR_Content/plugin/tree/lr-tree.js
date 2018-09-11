@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：learunTree	
  */
@@ -177,7 +177,7 @@
                             if (!node._loading) {
                                 node._loading = true;// 表示正在加载数据
                                 $this.find('.lr-tree-loading').show();
-                                NSAYC.httpAsync('GET', dfop.url, { parentId: node.id }, function (data) {
+                                learun.httpAsync('GET', dfop.url, { parentId: node.id }, function (data) {
                                     if (!!data) {
                                         node.ChildNodes = data;
                                         $ul = $.lrtree.renderNodeAsync($this, node, dfop);
@@ -289,7 +289,7 @@
             $.each(data, function (i, row) {
                 var flag = false;
                 
-                if (!NSAYC.validator.isNotNull(keyword).code || row.text.indexOf(keyword) != -1) {
+                if (!learun.validator.isNotNull(keyword).code || row.text.indexOf(keyword) != -1) {
                     
                     flag = true;
                 }
@@ -467,7 +467,7 @@
         $self[0]._lrtree = { dfop: dfop };
         $self[0]._lrtree.dfop.backupData = dfop.data;
         if (dfop.url) {
-            NSAYC.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
+            learun.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
                 $self[0]._lrtree.dfop.data = data || [];
                 $self[0]._lrtree.dfop.backupData = $self[0]._lrtree.dfop.data;
                 $.lrtree.render($self);
@@ -572,7 +572,7 @@
                 break;
             case 'search':
                 $.lrtree.search(op.keyword, dfop.data);
-                if (NSAYC.validator.isNotNull(op.keyword).code) {
+                if (learun.validator.isNotNull(op.keyword).code) {
                     dfop._isSearch = true;
                 }
                 else if (dfop._isSearch) {
@@ -583,7 +583,7 @@
             case 'refresh':
                 $.extend(dfop, op || {});
                 if (!!dfop.url) {
-                    NSAYC.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
+                    learun.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
                         $self[0]._lrtree.dfop.data = data || [];
                         $self[0]._lrtree.dfop.backupData = $self[0]._lrtree.dfop.data;
                         $.lrtree.renderToo($self);

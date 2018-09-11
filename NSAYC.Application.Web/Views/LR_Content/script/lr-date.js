@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 力软 敏捷开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前 端 开 发 组
+ * 版 本 Learun-ADMS V6.1.6.0 力软 敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前 端 开 发 组
  * 日 期：2017.03.16
  * 描 述：时间日期的处理
  */
@@ -53,7 +53,7 @@
             if (!!strInterval) {
                 myDate = myDate.DateAdd(strInterval, Number);
             }
-            var res = NSAYC.formatDate(myDate, format);
+            var res = learun.formatDate(myDate, format);
             return res;
         },
         // 月
@@ -62,11 +62,11 @@
                 begin: '',
                 end: ''
             };
-            var currentDate = NSAYC.parseDate(NSAYC.formatDate(new Date(), "yyyy-MM-01"));
+            var currentDate = learun.parseDate(learun.formatDate(new Date(), "yyyy-MM-01"));
             var endDate = currentDate.DateAdd('m', 1).DateAdd('d', -1);
 
-            res.begin = NSAYC.formatDate(currentDate, 'yyyy-MM-dd 00:00:00');
-            res.end = NSAYC.formatDate(endDate, 'yyyy-MM-dd 23:59:59');
+            res.begin = learun.formatDate(currentDate, 'yyyy-MM-dd 00:00:00');
+            res.end = learun.formatDate(endDate, 'yyyy-MM-dd 23:59:59');
 
             return res;
         },
@@ -75,22 +75,22 @@
                 begin:'',
                 end:''
             };
-            var currentDate = NSAYC.parseDate(NSAYC.formatDate(new Date(), "yyyy-MM-01"));
+            var currentDate = learun.parseDate(learun.formatDate(new Date(), "yyyy-MM-01"));
             var preMonth = currentDate.DateAdd('d',-1);
 
-            res.begin = NSAYC.formatDate(preMonth, 'yyyy-MM-01 00:00:00');
-            res.end = NSAYC.formatDate(preMonth, 'yyyy-MM-dd 23:59:59');
+            res.begin = learun.formatDate(preMonth, 'yyyy-MM-01 00:00:00');
+            res.end = learun.formatDate(preMonth, 'yyyy-MM-dd 23:59:59');
 
             return res;
         },
         // 季度
         getCurrentQuarter: function () {
             var currentDate = new Date();
-            return NSAYC.getQuarter(currentDate.getFullYear(), currentDate.getMonth());
+            return learun.getQuarter(currentDate.getFullYear(), currentDate.getMonth());
         },
         getPreQuarter: function () {
             var currentDate = new Date().DateAdd('q', -1);
-            return NSAYC.getQuarter(currentDate.getFullYear(), currentDate.getMonth());
+            return learun.getQuarter(currentDate.getFullYear(), currentDate.getMonth());
         },
         getQuarter: function (Year, month) {
             var res = {
@@ -195,7 +195,7 @@
         var dtStart = this;
         if (typeof dtEnd == 'string')//如果是字符串转换为日期型  
         {
-            dtEnd = NSAYC.parseDate(dtEnd);
+            dtEnd = learun.parseDate(dtEnd);
         }
         switch (strInterval) {
             case 's': return parseInt((dtEnd - dtStart) / 1000);

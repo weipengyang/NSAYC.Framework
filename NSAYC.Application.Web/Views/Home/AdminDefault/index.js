@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.03.16
  * 描 述：经典风格皮肤	
@@ -14,7 +14,7 @@ var bootstrap = function ($, learun) {
             this.bind();
         },
         load: function () {
-            var modulesTree = NSAYC.clientdata.get(['modulesTree']);
+            var modulesTree = learun.clientdata.get(['modulesTree']);
             // 第一级菜单
             var parentId = '0';
             var modules = modulesTree[parentId] || [];
@@ -116,11 +116,11 @@ var bootstrap = function ($, learun) {
             $('#lr_frame_menu .lr-menu-item').on('click', function () {
                 var $obj = $(this);
                 var id = $obj.attr('id');
-                var _module = NSAYC.clientdata.get(['modulesMap', id]);
+                var _module = learun.clientdata.get(['modulesMap', id]);
                 switch (_module.F_Target) {
                     case 'iframe':// 窗口
-                        if (NSAYC.validator.isNotNull(_module.F_UrlAddress).code) {
-                            NSAYC.frameTab.open(_module);
+                        if (learun.validator.isNotNull(_module.F_UrlAddress).code) {
+                            learun.frameTab.open(_module);
                         }
                         else {
 

@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content="快速开发平台,Web快速开发平台,ASP.NET快速开发平台,工作流,快速开发框架,软件可视化开发平台,快速开发 开源,快速开发平台 开源,APP快速开发,敏捷开发框架,快速开发" />
-    <meta name="description" content="爱养车开发框架，是一个Web可视化开发平台，是一个集PC快速开发、组织架构、工作流、表单设计、自定义报表、APP快速开发等全方位功能于一体的高效、稳定的快速开发平台。" />
+    <meta name="description" content="爱养车敏捷开发框架，是一个Web可视化开发平台，是一个集PC快速开发、组织架构、工作流、表单设计、自定义报表、APP快速开发等全方位功能于一体的高效、稳定的快速开发平台。" />
     <link rel="icon" href="~/favicon.ico">
 
     <title>@ViewBag.Title</title>
@@ -19,13 +19,13 @@
     <link href="~/Content/jquery/plugin/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
     <link href="~/Content/jquery/plugin/toastr/toastr.css" rel="stylesheet" />
     @Html.AppendCssFile(
-    "/Views/Content/style/lr-common.css",
-    "/Views/Content/style/lr-admin.css",
-    "/Views/Content/style/lr-layer.css",
-    "/Views/Content/plugin/contextmenu/lr-contextmenu.css",
-    "/Views/Content/plugin/im/lr-im.css",
-    "/Views/Content/plugin/tree/lr-tree.css",
-    "/Views/Content/plugin/select/lr-select.css"
+    "/Views/LR_Content/style/lr-common.css",
+    "/Views/LR_Content/style/lr-admin.css",
+    "/Views/LR_Content/style/lr-layer.css",
+    "/Views/LR_Content/plugin/contextmenu/lr-contextmenu.css",
+    "/Views/LR_Content/plugin/im/lr-im.css",
+    "/Views/LR_Content/plugin/tree/lr-tree.css",
+    "/Views/LR_Content/plugin/select/lr-select.css"
     )
 
     <script src="~/Content/pace/pace.min.js"></script>
@@ -61,22 +61,22 @@
         $.workflowapi = '@System.Configuration.ConfigurationManager.AppSettings["workflowapi"].ToString()';
     </script>
     @Html.AppendJsFile(
-    "/Views/Content/script/lr-base.js",
-    "/Views/Content/script/lr-tabs.js",
-    "/Views/Content/script/lr-date.js",
-    "/Views/Content/script/lr-validator-helper.js",
-    "/Views/Content/script/lr-layer.js",
-    "/Views/Content/script/lr-ajax.js",
-    "/Views/Content/script/lr-clientdata.js",
-    "/Views/Content/plugin/tree/lr-tree.js",
-    "/Views/Content/plugin/select/lr-select.js",
+    "/Views/LR_Content/script/lr-base.js",
+    "/Views/LR_Content/script/lr-tabs.js",
+    "/Views/LR_Content/script/lr-date.js",
+    "/Views/LR_Content/script/lr-validator-helper.js",
+    "/Views/LR_Content/script/lr-layer.js",
+    "/Views/LR_Content/script/lr-ajax.js",
+    "/Views/LR_Content/script/lr-clientdata.js",
+    "/Views/LR_Content/plugin/tree/lr-tree.js",
+    "/Views/LR_Content/plugin/select/lr-select.js",
     
 
-    "/Views/Content/plugin/workflow/lr-workflow-api.js",
-    "/Views/Content/plugin/contextmenu/lr-contextmenu.js",
-    "/Views/Content/plugin/im/lr-im.js",
+    "/Views/LR_Content/plugin/workflow/lr-workflow-api.js",
+    "/Views/LR_Content/plugin/contextmenu/lr-contextmenu.js",
+    "/Views/LR_Content/plugin/im/lr-im.js",
             
-    "/Views/Content/script/lr-admin.js"
+    "/Views/LR_Content/script/lr-admin.js"
     )
 </body>
 </html>

@@ -1,7 +1,5 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 创建人：力软-前端开发组
  * 日 期：2017.04.17
  * 描 述：流程模板管理	
  */
@@ -18,7 +16,7 @@ var bootstrap = function ($, learun) {
         bind: function () {
             // 左侧数据加载
             $('#lr_left_tree').lrtree({
-                url: top.$.rootUrl + '/SystemModule/DataItem/GetDetailTree',
+                url: top.$.rootUrl + '/LR_SystemModule/DataItem/GetDetailTree',
                 param: { itemCode: 'function' },
                 nodeClick: function (item) {
                     type = item.value;
@@ -37,7 +35,7 @@ var bootstrap = function ($, learun) {
             });
             // 新增
             $('#lr_add').on('click', function () {
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: 'Form',
                     title: '新增移动功能',
                     url: top.$.rootUrl + '/AppManager/FunctionManager/Form?type=' + type,
@@ -51,8 +49,8 @@ var bootstrap = function ($, learun) {
             // 编辑
             $('#lr_edit').on('click', function () {
                 var keyValue = $('#girdtable').jfGridValue('F_Id');                                                 
-                if (NSAYC.checkrow(keyValue)) {
-                    NSAYC.layerForm({
+                if (learun.checkrow(keyValue)) {
+                    learun.layerForm({
                         id: 'Form',
                         title: '编辑移动功能',
                         url: top.$.rootUrl + '/AppManager/FunctionManager/Form?keyValue=' + keyValue,
@@ -67,10 +65,10 @@ var bootstrap = function ($, learun) {
             // 删除
             $('#lr_delete').on('click', function () {
                 var keyValue = $('#girdtable').jfGridValue('F_Id');
-                if (NSAYC.checkrow(keyValue)) {
-                    NSAYC.layerConfirm('是否确认删除该功能！', function (res) {
+                if (learun.checkrow(keyValue)) {
+                    learun.layerConfirm('是否确认删除该功能！', function (res) {
                         if (res) {
-                            NSAYC.deleteForm(top.$.rootUrl + '/AppManager/FunctionManager/DeleteForm', { keyValue: keyValue }, function () {
+                            learun.deleteForm(top.$.rootUrl + '/AppManager/FunctionManager/DeleteForm', { keyValue: keyValue }, function () {
                                 refreshGirdData();
                             });
                         }
@@ -82,18 +80,18 @@ var bootstrap = function ($, learun) {
             $('#lr_enable').on('click', function () {
                 var keyValue = $('#girdtable').jfGridValue('F_Id');
                 var enabledMark = $('#girdtable').jfGridValue('F_EnabledMark');
-                if (NSAYC.checkrow(keyValue)) {
+                if (learun.checkrow(keyValue)) {
                     if (enabledMark != 1) {
-                        NSAYC.layerConfirm('是否启用该功能！', function (res) {
+                        learun.layerConfirm('是否启用该功能！', function (res) {
                             if (res) {
-                                NSAYC.postForm(top.$.rootUrl + '/AppManager/FunctionManager/UpDateSate', { keyValue: keyValue, state: 1 }, function () {
+                                learun.postForm(top.$.rootUrl + '/AppManager/FunctionManager/UpDateSate', { keyValue: keyValue, state: 1 }, function () {
                                     refreshGirdData();
                                 });
                             }
                         });
                     }
                     else {
-                        NSAYC.alert.warning('该功能已启用!');
+                        learun.alert.warning('该功能已启用!');
                     }
                 }
             });
@@ -102,34 +100,34 @@ var bootstrap = function ($, learun) {
                 var keyValue = $('#girdtable').jfGridValue('F_Id');
                 var enabledMark = $('#girdtable').jfGridValue('F_EnabledMark');
 
-                if (NSAYC.checkrow(keyValue)) {
+                if (learun.checkrow(keyValue)) {
                     if (enabledMark == 1) {
-                        NSAYC.layerConfirm('是否禁用该功能！', function (res) {
+                        learun.layerConfirm('是否禁用该功能！', function (res) {
                             if (res) {
-                                NSAYC.postForm(top.$.rootUrl + '/AppManager/FunctionManager/UpDateSate', { keyValue: keyValue, state: 0 }, function () {
+                                learun.postForm(top.$.rootUrl + '/AppManager/FunctionManager/UpDateSate', { keyValue: keyValue, state: 0 }, function () {
                                     refreshGirdData();
                                 });
                             }
                         });
                     }
                     else {
-                        NSAYC.alert.warning('该功能已禁用!');
+                        learun.alert.warning('该功能已禁用!');
                     }
                 }
             });
            
             /*分类管理*/
             $('#lr_category').on('click', function () {
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: 'ClassifyIndex',
                     title: '分类管理',
-                    url: top.$.rootUrl + '/SystemModule/DataItem/DetailIndex?itemCode=function',
+                    url: top.$.rootUrl + '/LR_SystemModule/DataItem/DetailIndex?itemCode=function',
                     width: 800,
                     height: 500,
                     maxmin: true,
                     btn: null,
                     end: function () {
-                        NSAYC.clientdata.update('dataItem');
+                        learun.clientdata.update('dataItem');
                         location.reload();
                     }
                 });
@@ -143,7 +141,7 @@ var bootstrap = function ($, learun) {
                     {
                         label: "分类", name: "F_Type", width: 120, align: "left",
                         formatterAsync: function (callback, value, row) {
-                            NSAYC.clientdata.getAsync('dataItem', {
+                            learun.clientdata.getAsync('dataItem', {
                                 key: value,
                                 code: 'function',
                                 callback: function (_data) {
@@ -166,7 +164,7 @@ var bootstrap = function ($, learun) {
                     {
                         label: "编辑时间", name: "F_CreateDate", width: 150, align: "left",
                         formatter: function (cellvalue) {
-                            return NSAYC.formatDate(cellvalue, 'yyyy-MM-dd');
+                            return learun.formatDate(cellvalue, 'yyyy-MM-dd');
                         },
                         sort: true
                     }

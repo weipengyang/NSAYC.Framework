@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 力 软敏捷开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前 端 开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力 软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前 端 开发组
  * 日 期：2017.03.16
  * 描 述：操作类	
  */
@@ -11,7 +11,7 @@ top.learun = (function ($) {
         // 是否是调试模式
         isDebug: true,
         log: function () {
-            if (NSAYC.isDebug) {
+            if (learun.isDebug) {
                 console.log('=====>' + new Date().getTime() + '<=====');
                 var len = arguments.length;
                 for (var i = 0; i < len; i++) {
@@ -105,13 +105,13 @@ top.learun = (function ($) {
         // 文件大小转换
         countFileSize: function (size) {
             if (size < 1024.00)
-                return NSAYC.toDecimal(size) + " 字节";
+                return learun.toDecimal(size) + " 字节";
             else if (size >= 1024.00 && size < 1048576)
-                return NSAYC.toDecimal(size / 1024.00) + " KB";
+                return learun.toDecimal(size / 1024.00) + " KB";
             else if (size >= 1048576 && size < 1073741824)
-                return NSAYC.toDecimal(size / 1024.00 / 1024.00) + " MB";
+                return learun.toDecimal(size / 1024.00 / 1024.00) + " MB";
             else if (size >= 1073741824)
-                return NSAYC.toDecimal(size / 1024.00 / 1024.00 / 1024.00) + " GB";
+                return learun.toDecimal(size / 1024.00 / 1024.00 / 1024.00) + " GB";
         },
         // 数组复制
         arrayCopy: function (data) {
@@ -124,7 +124,7 @@ top.learun = (function ($) {
             var isOK = true;
             if (id == undefined || id == "" || id == 'null' || id == 'undefined') {
                 isOK = false;
-                NSAYC.alert.warning('您没有选中任何数据项,请选中后再操作！');
+                learun.alert.warning('您没有选中任何数据项,请选中后再操作！');
             }
             return isOK;
         },

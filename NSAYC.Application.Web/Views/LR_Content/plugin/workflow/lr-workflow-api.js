@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：工作流引擎api操作方法类
  */
@@ -9,27 +9,27 @@
     "use strict";
 
     var api = {
-        bootstraper: top.$.rootUrl + '/WorkFlowModule/WfEngine/Bootstraper',
-        taskinfo: top.$.rootUrl + '/WorkFlowModule/WfEngine/Taskinfo',
-        processinfo: top.$.rootUrl + '/WorkFlowModule/WfEngine/Processinfo',
+        bootstraper: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Bootstraper',
+        taskinfo: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Taskinfo',
+        processinfo: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Processinfo',
 
-        auditer: top.$.rootUrl + '/WorkFlowModule/WfEngine/Auditer',
+        auditer: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Auditer',
 
-        create: top.$.rootUrl + '/WorkFlowModule/WfEngine/Create',
-        audit: top.$.rootUrl + '/WorkFlowModule/WfEngine/Audit',
+        create: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Create',
+        audit: top.$.rootUrl + '/LR_WorkFlowModule/WfEngine/Audit',
     };
 
     var httpGet = function (url, param, callback, loadmsg) {
-        NSAYC.loading(true, loadmsg || '正在获取数据');
-        NSAYC.httpAsync('GET', url, param, function (res) {
-            NSAYC.loading(false);
+        learun.loading(true, loadmsg || '正在获取数据');
+        learun.httpAsync('GET', url, param, function (res) {
+            learun.loading(false);
             callback(res);
         });
     };
     var httpPost = function (url, param, callback, loadmsg) {
-        NSAYC.loading(true, loadmsg || '正在获取数据');
-        NSAYC.httpAsync('Post', url, param, function (data) {
-            NSAYC.loading(false);
+        learun.loading(true, loadmsg || '正在获取数据');
+        learun.httpAsync('Post', url, param, function (data) {
+            learun.loading(false);
             callback(data);
         });
     };
@@ -44,7 +44,7 @@
         return req;
     }
 
-    NSAYC.workflowapi = {
+    learun.workflowapi = {
         // 流程初始化用于发起:
         // isNew是否是新发起的流程,processId:发起的流程实例主键,schemeCode:发起的流程模板编码
         // callback:回调函数 res：true/false,data:返回的节点数据
@@ -67,12 +67,12 @@
                         op.callback(true, res.data);
                     }
                     else {
-                        NSAYC.alert.error(res.desc);
+                        learun.alert.error(res.desc);
                         op.callback(false);
                     }
                 }
                 else {
-                    NSAYC.alert.error('获取流程信息失败!');
+                    learun.alert.error('获取流程信息失败!');
                     op.callback(false);
                 }
             }, '正在获取流程信息...');
@@ -105,12 +105,12 @@
                         op.callback(true);
                     }
                     else {
-                        NSAYC.alert.error(res.desc);
+                        learun.alert.error(res.desc);
                         op.callback(false);
                     }
                 }
                 else {
-                    NSAYC.alert.error('创建流程失败!');
+                    learun.alert.error('创建流程失败!');
                     op.callback(false);
                 }
             }, '正在创建流程实例...');
@@ -133,12 +133,12 @@
                         op.callback(true, res.data);
                     }
                     else {
-                        NSAYC.alert.error(res.desc);
+                        learun.alert.error(res.desc);
                         op.callback(false);
                     }
                 }
                 else {
-                    NSAYC.alert.error('获取流程信息失败!');
+                    learun.alert.error('获取流程信息失败!');
                     op.callback(false);
                 }
             }, '正在获取流程信息...');
@@ -165,12 +165,12 @@
                         op.callback(true);
                     }
                     else {
-                        NSAYC.alert.error(res.desc);
+                        learun.alert.error(res.desc);
                         op.callback(false);
                     }
                 }
                 else {
-                    NSAYC.alert.error('流程审核失败!');
+                    learun.alert.error('流程审核失败!');
                     op.callback(false);
                 }
             }, '正在审核流程实例...');
@@ -193,12 +193,12 @@
                         op.callback(true, res.data);
                     }
                     else {
-                        NSAYC.alert.error(res.desc);
+                        learun.alert.error(res.desc);
                         op.callback(false);
                     }
                 }
                 else {
-                    NSAYC.alert.error('获取流程信息失败!');
+                    learun.alert.error('获取流程信息失败!');
                     op.callback(false);
                 }
             }, '正在获取流程信息...');
@@ -226,7 +226,7 @@
                     op.callback(res);
                 }
                 else {
-                    //NSAYC.alert.error('获取下一个节点审核人员失败!');
+                    //learun.alert.error('获取下一个节点审核人员失败!');
                     op.callback([]);
                 }
             }, '获取下个节点审核人员...');

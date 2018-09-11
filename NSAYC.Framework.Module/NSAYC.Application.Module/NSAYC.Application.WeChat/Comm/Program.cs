@@ -105,14 +105,14 @@ namespace NSAYC.Application.WeChat
             //        description="测试新闻",
             //        picurl="http://www.NSAYC.cn/images/banner3.jpg",
             //        url="http://www.NSAYC.cn/fdms/index.html",
-            //        title="力软在线"
+            //        title="爱养车在线"
             //        },
             //                            new SendNews.SendItem
             //        {
             //        description="测试新闻二",
             //        picurl="http://www.NSAYC.cn/images/banner3.jpg",
             //        url="http://www.NSAYC.cn",
-            //        title="力软在线"
+            //        title="爱养车在线"
             //        }
                     
             //        }

@@ -6,7 +6,7 @@ namespace  NSAYC.Application.Mapping
     /// <summary>
     /// 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架
     /// Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
-    /// 创 建：力软框架开发组
+    /// 创 建：爱养车框架开发组
     /// 日 期：2017-06-21 16:30
     /// 描 述：数据权限
     /// </summary>

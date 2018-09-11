@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.17
  * 描 述：获取客户端数据
  */
@@ -15,14 +15,14 @@
 
  *******************使用时异步获取*******************
  *user--------------------------用户数据
-    NSAYC.clientdata.getAsync('user', {
+    learun.clientdata.getAsync('user', {
         userId: value,
         callback: function (item) {
             callback(item.F_RealName);
         }
     });
  *department--------------------部门数据
-    NSAYC.clientdata.getAsync('department', {
+    learun.clientdata.getAsync('department', {
         key: value,
         companyId: row.F_CompanyId,
         callback: function (item) {
@@ -30,21 +30,21 @@
         }
     });
  *company----------------------公司
-    NSAYC.clientdata.getAsync('company', {
+    learun.clientdata.getAsync('company', {
             key: value,
             callback: function (_data) {
                 _data.F_FullName
             }
    });
  *db--------------------------数据库
-    NSAYC.clientdata.getAsync('db', {
+    learun.clientdata.getAsync('db', {
             key: value,
             callback: function (_data) {
                 _data.F_DBName
             }
    });
  *dataItem--------------------数据字典
- NSAYC.clientdata.getAsync('dataItem', {
+ learun.clientdata.getAsync('dataItem', {
             key: value,
             itemCode:itemCode,
             callback: function (_data) {
@@ -52,7 +52,7 @@
             }
    });
  *custmerData-----------------自定义数据
- NSAYC.clientdata.getAsync('custmerData', {
+ learun.clientdata.getAsync('custmerData', {
         url: url,
         key: value,
         valueId: valueId,
@@ -132,7 +132,7 @@
         return res;
     }
 
-    NSAYC.clientdata = {
+    learun.clientdata = {
         init: function (callback) {
             initLoad(function (res) {
                 callback(res);
@@ -180,8 +180,8 @@
         init: function () {
             //初始化加载数据
             clientDataFn.modules.state = loadSate.ing;
-            NSAYC.httpAsyncGet($.rootUrl + '/SystemModule/Module/GetModuleList', function (res) {
-                if (res.code == NSAYC.httpCode.success) {
+            learun.httpAsyncGet($.rootUrl + '/LR_SystemModule/Module/GetModuleList', function (res) {
+                if (res.code == learun.httpCode.success) {
                     clientData.modules = res.data;
                     clientDataFn.modules.toMap();
                     clientDataFn.modules.state = loadSate.yes;
@@ -216,8 +216,8 @@
         init: function () {
             //初始化加载数据
             clientDataFn.userinfo.state = loadSate.ing;
-            NSAYC.httpAsyncGet($.rootUrl + '/Login/GetUserInfo', function (res) {
-                if (res.code == NSAYC.httpCode.success) {
+            learun.httpAsyncGet($.rootUrl + '/Login/GetUserInfo', function (res) {
+                if (res.code == learun.httpCode.success) {
                     clientData.userinfo = res.data;
                     clientDataFn.userinfo.state = loadSate.yes;
                 }
@@ -254,7 +254,7 @@
             if (clientAsyncData.company.states == loadSate.no) {
                 clientAsyncData.company.states = loadSate.ing;
                 var ver = storage.get("companyData").ver || "";
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/OrganizationModule/Company/GetMap', { ver: ver }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_OrganizationModule/Company/GetMap', { ver: ver }, function (data) {
                     if (!data) {
                         clientAsyncData.company.states = loadSate.fail;
                     } else {
@@ -298,7 +298,7 @@
             if (clientAsyncData.department.states == loadSate.no) {
                 clientAsyncData.department.states = loadSate.ing;
                 var ver = storage.get("departmentData").ver || "";
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/OrganizationModule/Department/GetMap', { ver: ver }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_OrganizationModule/Department/GetMap', { ver: ver }, function (data) {
                     if (!data) {
                         clientAsyncData.department.states = loadSate.fail;
                     } else {
@@ -342,7 +342,7 @@
             if (clientAsyncData.user.states == loadSate.no) {
                 clientAsyncData.user.states = loadSate.ing;
                 var ver = storage.get("userData").ver || "";
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/OrganizationModule/User/GetMap', { ver: ver }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_OrganizationModule/User/GetMap', { ver: ver }, function (data) {
                     if (!data) {
                         clientAsyncData.user.states = loadSate.fail;
                     } else {
@@ -386,7 +386,7 @@
             if (clientAsyncData.dataItem.states == loadSate.no) {
                 clientAsyncData.dataItem.states = loadSate.ing;
                 var ver = storage.get("dataItemData").ver || "";
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/DataItem/GetMap', { ver: ver }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/DataItem/GetMap', { ver: ver }, function (data) {
                     if (!data) {
                         clientAsyncData.dataItem.states = loadSate.fail;
                     } else {
@@ -444,7 +444,7 @@
             if (clientAsyncData.db.states == loadSate.no) {
                 clientAsyncData.db.states = loadSate.ing;
                 var ver = storage.get("dbData").ver || "";
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/DatabaseLink/GetMap', { ver: ver }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/DatabaseLink/GetMap', { ver: ver }, function (data) {
                     if (!data) {
                         clientAsyncData.db.states = loadSate.fail;
                     } else {
@@ -527,7 +527,7 @@
         },
         load: function (code) {
             var ver = storage.get("sourceData_" + code).ver || "";
-            NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/DataSource/GetMap', { code: code, ver: ver }, function (data) {
+            learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/DataSource/GetMap', { code: code, ver: ver }, function (data) {
                 if (!data) {
                     clientAsyncData.sourceData.states[code] = loadSate.fail;
                 } else {
@@ -593,7 +593,7 @@
             }
         },
         load: function (url) {
-            NSAYC.httpAsync('GET', top.$.rootUrl + url, {}, function (data) {
+            learun.httpAsync('GET', top.$.rootUrl + url, {}, function (data) {
                 if (!!data) {
                     clientData[url] = data;
                 }

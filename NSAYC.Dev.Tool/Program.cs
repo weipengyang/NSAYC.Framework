@@ -16,7 +16,7 @@ namespace NSAYC.Dev.Tool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 力软开发小工具());
+            Application.Run(new 爱养车开发小工具());
         }
     }
 }

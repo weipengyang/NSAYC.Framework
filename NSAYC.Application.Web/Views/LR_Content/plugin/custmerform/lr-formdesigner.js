@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
  * 创建人：力 软-前端开 发组
  * 日 期：2017.03.22
  * 描 述：自定义表单设计
@@ -77,10 +77,10 @@
             // 编辑选项卡
             $self.find('#lr_custmerform_tabsEdit_btn_' + dfop.id).on('click', function () {
                 top.formTabList = dfop.data;
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: 'custmerForm_editTabs_index',
                     title: '编辑选项卡',
-                    url: top.$.rootUrl + '/FormModule/Custmerform/TabEditIndex?keyValue=formTabList',
+                    url: top.$.rootUrl + '/LR_FormModule/Custmerform/TabEditIndex?keyValue=formTabList',
                     width: 600,
                     height: 400,
                     maxmin: true,
@@ -96,10 +96,10 @@
             $self.find('#lr_custmerform_preview_btn_' + dfop.id).on('click', function () {
                 top.custmerFormData = dfop.data;
                 $.lrCustmerFormDesigner.saveComponts($self);
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: 'custmerForm_PreviewForm',
                     title: '预览当前表单',
-                    url: top.$.rootUrl + '/FormModule/Custmerform/PreviewForm?keyValue=custmerFormData',
+                    url: top.$.rootUrl + '/LR_FormModule/Custmerform/PreviewForm?keyValue=custmerFormData',
                     width: 700,
                     height: 500,
                     maxmin: true,
@@ -137,7 +137,7 @@
                         $compont.removeClass('lr-custmerform-component');
                         $compont.removeAttr('data-type');
                         $.lrFormComponents[componttype].render($compont);
-                        $compont[0].dfop.id = NSAYC.newGuid();
+                        $compont[0].dfop.id = learun.newGuid();
                         $compont.trigger("click");
                     }
                     else {
@@ -376,7 +376,7 @@
                         var title = dfop.data[i].componts[j].title;
                         if (table != '' && field != '') {
                             if (!!_data[table + '_' + field]) {
-                                NSAYC.alert.error('【' + title + '】绑定数据表字段与【' + _data[table + '_' + field] + '】重复！');
+                                learun.alert.error('【' + title + '】绑定数据表字段与【' + _data[table + '_' + field] + '】重复！');
                                 res = false;
                             }
                             else {
@@ -386,12 +386,12 @@
                         else {
                             if (dfop.data[i].componts[j].type == 'girdtable') {
                                 if (table == '') {
-                                    NSAYC.alert.error('【表格项】请绑定数据表！');
+                                    learun.alert.error('【表格项】请绑定数据表！');
                                     res = false;
                                 }
                             }
                             else {
-                                NSAYC.alert.error('【' + title + '】请绑定数据表！');
+                                learun.alert.error('【' + title + '】请绑定数据表！');
                                 res = false;
                             }
                         }

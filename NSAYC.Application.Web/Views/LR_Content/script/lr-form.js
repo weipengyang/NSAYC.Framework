@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.16
  * 描 述：表单处理方法
  */
@@ -99,7 +99,7 @@
                         $obj.lrGirdSelectSet(value);
                         break;
                     case "datepicker":
-                        $obj.val(NSAYC.formatDate(value, 'yyyy-MM-dd'));
+                        $obj.val(learun.formatDate(value, 'yyyy-MM-dd'));
                         break;
                     case "lr-Uploader":
                         $obj.lrUploaderSet(value);
@@ -119,50 +119,50 @@
 
     /*表单数据操作*/
     $.lrSetForm = function (url, callback) {
-        NSAYC.loading(true, '正在获取数据');
-        NSAYC.httpAsyncGet(url, function (res) {
-            NSAYC.loading(false);
-            if (res.code == NSAYC.httpCode.success) {
+        learun.loading(true, '正在获取数据');
+        learun.httpAsyncGet(url, function (res) {
+            learun.loading(false);
+            if (res.code == learun.httpCode.success) {
                 callback(res.data);
             }
             else {
-                NSAYC.layerClose(window.name);
-                NSAYC.alert.error('表单数据获取失败,请重新获取！');
-                NSAYC.httpErrorLog(res.info);
+                learun.layerClose(window.name);
+                learun.alert.error('表单数据获取失败,请重新获取！');
+                learun.httpErrorLog(res.info);
             }
         });
     };
     $.lrSaveForm = function (url, param, callback, isNotClosed) {
         param['__RequestVerificationToken'] = $.lrToken;
-        NSAYC.loading(true, '正在保存数据');
-        NSAYC.httpAsyncPost(url, param, function (res) {
-            NSAYC.loading(false);
-            if (res.code == NSAYC.httpCode.success) {
+        learun.loading(true, '正在保存数据');
+        learun.httpAsyncPost(url, param, function (res) {
+            learun.loading(false);
+            if (res.code == learun.httpCode.success) {
                 if (!!callback) {
                     callback(res);
                 }
-                NSAYC.alert.success(res.info);
+                learun.alert.success(res.info);
                 if (!isNotClosed) {
-                    NSAYC.layerClose(window.name);
+                    learun.layerClose(window.name);
                 }
             }
             else {
-                NSAYC.alert.error(res.info);
-                NSAYC.httpErrorLog(res.info);
+                learun.alert.error(res.info);
+                learun.httpErrorLog(res.info);
             }
         });
     };
     $.lrPostForm = function (url, param) {
         param['__RequestVerificationToken'] = $.lrToken;
-        NSAYC.loading(true, '正在提交数据');
-        NSAYC.httpAsyncPost(url, param, function (res) {
-            NSAYC.loading(false);
-            if (res.code == NSAYC.httpCode.success) {
-                NSAYC.alert.success(res.info);
+        learun.loading(true, '正在提交数据');
+        learun.httpAsyncPost(url, param, function (res) {
+            learun.loading(false);
+            if (res.code == learun.httpCode.success) {
+                learun.alert.success(res.info);
             }
             else {
-                NSAYC.alert.error(res.info);
-                NSAYC.httpErrorLog(res.info);
+                learun.alert.error(res.info);
+                learun.httpErrorLog(res.info);
             }
         });
     };
@@ -221,7 +221,7 @@
         };
         data[controlId] = $control.val();
         $.extend(data, param);
-        NSAYC.httpAsync('GET', url, data, function (data) {
+        learun.httpAsync('GET', url, data, function (data) {
             if (data == false) {
                 $.lrValidformMessage($control, '已存在,请重新输入');
             }
@@ -238,7 +238,7 @@
             // 是否允许搜索
             allowSearch: false,
             // 访问数据接口地址
-            //url: top.$.rootUrl + '/SystemModule/DataItem/GetDetailListByParentId',
+            //url: top.$.rootUrl + '/LR_SystemModule/DataItem/GetDetailListByParentId',
             // 访问数据接口参数
             param: { itemCode: '', parentId: '0' },
             // 级联下级框
@@ -270,7 +270,7 @@
                 }
                 else {
                     list2 = [];
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: dfop.param.itemCode,
                         callback: function (dataes) {
                             $.each(dataes, function (_index, _item) {
@@ -287,7 +287,7 @@
             };
         }
         var $select = $(this).lrselect(dfop);
-        NSAYC.clientdata.getAllAsync('dataItem', {
+        learun.clientdata.getAllAsync('dataItem', {
             code: dfop.param.itemCode,
             callback: function (dataes) {
                 $.each(dataes, function (_index, _item) {
@@ -317,7 +317,7 @@
         }
         var $select = $(this).lrselect(dfop);
 
-        NSAYC.clientdata.getAllAsync('sourceData', {
+        learun.clientdata.getAllAsync('sourceData', {
             code: op.code,
             callback: function (dataes) {
                 $select.lrselectRefresh({
@@ -341,7 +341,7 @@
             // 是否允许搜索
             allowSearch: true,
             // 访问数据接口地址
-            url: top.$.rootUrl + '/OrganizationModule/Company/GetTree',
+            url: top.$.rootUrl + '/LR_OrganizationModule/Company/GetTree',
             // 访问数据接口参数
             param: { parentId: '0' },
         };
@@ -354,7 +354,7 @@
         }
         var $select = $(this).lrselect(dfop);
         if (!!op.isLocal) {
-            NSAYC.clientdata.getAllAsync('company', {
+            learun.clientdata.getAllAsync('company', {
                 callback: function (dataes) {
                     var mapdata = {};
                     var resdata = [];
@@ -407,7 +407,7 @@
             // 是否允许搜索
             allowSearch: true,
             // 访问数据接口地址
-            url: top.$.rootUrl + '/OrganizationModule/Department/GetTree',
+            url: top.$.rootUrl + '/LR_OrganizationModule/Department/GetTree',
             // 访问数据接口参数
             param: { companyId: '', parentId: '0' },
         }
@@ -422,18 +422,18 @@
     $.fn.lrUserSelect = function (type) {//0单选1多选
         if (type == 0) {
             $(this).lrformselect({
-                layerUrl: top.$.rootUrl + '/OrganizationModule/User/SelectOnlyForm',
+                layerUrl: top.$.rootUrl + '/LR_OrganizationModule/User/SelectOnlyForm',
                 layerUrlW: 400,
                 layerUrlH: 300,
-                dataUrl: top.$.rootUrl + '/OrganizationModule/User/GetListByUserIds'
+                dataUrl: top.$.rootUrl + '/LR_OrganizationModule/User/GetListByUserIds'
             });
         }
         else {
             $(this).lrformselect({
-                layerUrl: top.$.rootUrl + '/OrganizationModule/User/SelectForm',
+                layerUrl: top.$.rootUrl + '/LR_OrganizationModule/User/SelectForm',
                 layerUrlW: 800,
                 layerUrlH: 520,
-                dataUrl: top.$.rootUrl + '/OrganizationModule/User/GetListByUserIds'
+                dataUrl: top.$.rootUrl + '/LR_OrganizationModule/User/GetListByUserIds'
             });
         }
     }
@@ -451,7 +451,7 @@
             // 是否允许搜索
             allowSearch: true,
             // 访问数据接口地址
-            url: top.$.rootUrl + '/SystemModule/Area/Getlist',
+            url: top.$.rootUrl + '/LR_SystemModule/Area/Getlist',
             // 访问数据接口参数
             param: { parentId: ''},
         }
@@ -489,7 +489,7 @@
                     }
                     else {
                         $obj.lrselectRefresh({
-                            url: top.$.rootUrl + '/SystemModule/Area/Getlist',
+                            url: top.$.rootUrl + '/LR_SystemModule/Area/Getlist',
                             param: { parentId: _value },
                         });
                     }
@@ -510,7 +510,7 @@
             // 是否允许搜索
             allowSearch: true,
             // 访问数据接口地址
-            url: top.$.rootUrl + '/SystemModule/DatabaseLink/GetTreeList'
+            url: top.$.rootUrl + '/LR_SystemModule/DatabaseLink/GetTreeList'
         }
         op = op || {};
         dfop.maxHeight = op.maxHeight || 200;
@@ -536,7 +536,7 @@
 
        
         if (dfop.dataType == 'dataItem') {
-            NSAYC.clientdata.getAllAsync('dataItem', {
+            learun.clientdata.getAllAsync('dataItem', {
                 code: dfop.param.itemCode,
                 callback: function (dataes) {
                     $.each(dataes, function (id, item) {
@@ -548,7 +548,7 @@
             });
         }
         else {
-            NSAYC.clientdata.getAllAsync('sourceData', {
+            learun.clientdata.getAllAsync('sourceData', {
                 code: vlist[0],
                 callback: function (dataes) {
                     $.each(dataes, function (id, item) {

@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：learunISearch 输入搜索框，支持input输入框，数据异步加载，本地查询
  */
@@ -116,7 +116,7 @@
         $.lrisearch.init($self);
         //加载数据
         if (!!dfop.url) {
-            NSAYC.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
+            learun.httpAsync(dfop.method, dfop.url, dfop.param, function (data) {
                 $self[0]._lrisearch.dfop.data = data || [];
                 dfop.isload = true;
                 if (dfop._isSearchneed) {

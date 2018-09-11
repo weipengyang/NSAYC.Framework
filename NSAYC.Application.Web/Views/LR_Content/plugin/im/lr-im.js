@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：即时聊天-》系统内部通讯
  */
@@ -95,7 +95,7 @@
 
         // 获取用户登录信息
         , getUserInfo: function (callback) {
-            userinfo = NSAYC.clientdata.get(['userinfo']);
+            userinfo = learun.clientdata.get(['userinfo']);
             if (!!userinfo) {
                 callback();
             }
@@ -247,7 +247,7 @@
                 else if (keyCode == "13" && isWindowOpen) {
                     var sendText = $(this).val();
                     if (sendText) {
-                        $._lrIM.addRightMsg(userinfo.realName, NSAYC.getDate('yyyy-MM-dd hh:mm'), $._lrIM.getUserImg(), sendText);
+                        $._lrIM.addRightMsg(userinfo.realName, learun.getDate('yyyy-MM-dd hh:mm'), $._lrIM.getUserImg(), sendText);
                     }
                     $('#learun_im_window .lr-im-window-send').html('<textarea autofocus placeholder="按回车发送消息,shift+回车换行"></textarea>');
                     setTimeout(function () {
@@ -267,7 +267,7 @@
                 // 是否允许搜索
                 allowSearch: true,
                 // 访问数据接口地址
-                url: top.$.rootUrl + '/OrganizationModule/Department/GetTree',
+                url: top.$.rootUrl + '/LR_OrganizationModule/Department/GetTree',
                 // 访问数据接口参数
                 param: { companyId: '', parentId: '' },
                 placeholder: '请选择部门',
@@ -282,7 +282,7 @@
                     });
                 }
             });
-            userinfo = NSAYC.clientdata.get(['userinfo']);
+            userinfo = learun.clientdata.get(['userinfo']);
             $('#im_department').lrselectSet(userinfo.departmentId);
 
             // 优化滚动条
@@ -302,7 +302,7 @@
         , getUserHtml: function (userItem) {
             if (userItem.F_UserId != userinfo.userId) {
                 var _li = '';
-                if (NSAYC.isExistImg(top.$.rootUrl + userItem.F_HeadIcon)) {
+                if (learun.isExistImg(top.$.rootUrl + userItem.F_HeadIcon)) {
                     headimg = top.$.rootUrl + userItem.F_HeadIcon;
                 }
                 else if (userItem.F_Gender != 0) {
@@ -317,7 +317,7 @@
         },
         getUserImg: function () {
             var headimg = '';
-            if (NSAYC.isExistImg(top.$.rootUrl + userinfo.headIcon)) {
+            if (learun.isExistImg(top.$.rootUrl + userinfo.headIcon)) {
                 headimg = top.$.rootUrl + userinfo.headIcon;
             }
             else if (userinfo.gender != 0) {

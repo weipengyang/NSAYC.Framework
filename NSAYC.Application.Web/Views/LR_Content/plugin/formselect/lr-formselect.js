@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端 开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端 开发组
  * 日 期：2017.03.16
  * 描 述：弹层选择控件
  */
@@ -42,7 +42,7 @@
                 }
                 _url += '&selectValue=' + value;
                 _url += '&selectText=' + encodeURI(encodeURI($self.find('span').text()));
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: dfop.id,
                     title: dfop.placeholder,
                     url: _url,
@@ -130,7 +130,7 @@
             return false;
         }
         dfop._itemValue = { value: value };
-        NSAYC.httpAsync('GET', dfop.dataUrl, { keyValue: value }, function (data) {
+        learun.httpAsync('GET', dfop.dataUrl, { keyValue: value }, function (data) {
             if (!!data && data !="") {
                 dfop._itemValue.text = data;
                 $self.addClass('selected');
@@ -150,7 +150,7 @@
             $self.html($input);
 
             // 异步加载数据
-            NSAYC.httpAsync('GET', dfop.url, dfop.param, function (data) {
+            learun.httpAsync('GET', dfop.url, dfop.param, function (data) {
                 dfop._loaded = true;
                 dfop._data = data || [];
             });
@@ -173,7 +173,7 @@
             }
             else {
                 var value = dfop._itemValue ? dfop._itemValue.value : "";
-                NSAYC.layerForm({
+                learun.layerForm({
                     id: dfop.id,
                     title: dfop.placeholder,
                     url: top.$.rootUrl + '/Utility/GirdSelectIndex?dfopid=' + dfop.id,

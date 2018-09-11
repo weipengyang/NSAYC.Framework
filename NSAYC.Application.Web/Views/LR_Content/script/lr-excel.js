@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.16
  * 描 述：excel 导入导出
  */
@@ -11,7 +11,7 @@
         function excelInit() {
             if (!!lrModule) {
                 // 导入
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/ExcelImport/GetList', { moduleId: lrModule.F_ModuleId }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/ExcelImport/GetList', { moduleId: lrModule.F_ModuleId }, function (data) {
                     if (!!data && data.length > 0) {
                         var $layouttool = $('.lr-layout-tool-right');
                         var $btnGroup = $('<div class=" btn-group btn-group-sm"></div>');
@@ -23,10 +23,10 @@
                                 $btn.on('click', function () {
                                     var id = $(this).attr('data-value');
                                     var text = $(this).text();
-                                    NSAYC.layerForm({
+                                    learun.layerForm({
                                         id: 'ImportForm',
                                         title: text,
-                                        url: top.$.rootUrl + '/SystemModule/ExcelImport/ImportForm?id=' + id,
+                                        url: top.$.rootUrl + '/LR_SystemModule/ExcelImport/ImportForm?id=' + id,
                                         width: 600,
                                         height: 400,
                                         maxmin: true,
@@ -40,7 +40,7 @@
                     }
                 });
                 // 导出
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/ExcelExport/GetList', { moduleId: lrModule.F_ModuleId }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/ExcelExport/GetList', { moduleId: lrModule.F_ModuleId }, function (data) {
                     if (!!data && data.length > 0) {
                         var $layouttool = $('.lr-layout-tool-right');
                         var $btnGroup = $('<div class=" btn-group btn-group-sm"></div>');
@@ -52,7 +52,7 @@
                                 $btn[0].dfop = item;
                                 $btn.on('click', function () {
                                     item = $btn[0].dfop;
-                                    NSAYC.layerForm({
+                                    learun.layerForm({
                                         id: "ExcelExportForm",
                                         title: '导出Excel数据',
                                         url: top.$.rootUrl + '/Utility/ExcelExportForm?gridId=' + item.F_GridId + '&filename=' + encodeURI(encodeURI(item.F_Name)),

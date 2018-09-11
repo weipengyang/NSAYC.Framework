@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
  * 创建人：力 软-前端开 发组
  * 日 期：2017.03.22
  * 描 述：自定义表单渲染
@@ -103,7 +103,7 @@
     // 验证自定义表单数据
     $.lrValidCustmerform = function () {
         var validateflag = true;
-        var validHelper = NSAYC.validator;
+        var validHelper = learun.validator;
         $('body').find("[isvalid=yes]").each(function () {
             var $this = $(this);
             if ($this.parent().find('.lr-field-error-info').length > 0) {
@@ -237,7 +237,7 @@
                         $obj.lrformselectSet(value);
                         break;
                     case "datepicker":
-                        $obj.val(NSAYC.formatDate(value, 'yyyy-MM-dd'));
+                        $obj.val(learun.formatDate(value, 'yyyy-MM-dd'));
                         break;
                     case "lr-Uploader":
                         $obj.lrUploaderSet(value);
@@ -246,7 +246,7 @@
                         if ($obj.hasClass('lr-currentInfo-user')) {
                             $obj[0].lrvalue = value;
                             $obj.val('');
-                            NSAYC.clientdata.getAsync('user', {
+                            learun.clientdata.getAsync('user', {
                                 key: value,
                                 callback: function (item, op) {
                                     op.obj.val(item.name);
@@ -257,7 +257,7 @@
                         else if ($obj.hasClass('lr-currentInfo-company')) {
                             $obj[0].lrvalue = value;
                             $obj.val('');
-                            NSAYC.clientdata.getAsync('company', {
+                            learun.clientdata.getAsync('company', {
                                 key: value,
                                 callback: function (_data) {
                                     op.obj.val(_data.name);
@@ -268,7 +268,7 @@
                         else if ($obj.hasClass('lr-currentInfo-department')) {
                             $obj[0].lrvalue = value;
                             $obj.val('');
-                            NSAYC.clientdata.getAsync('department', {
+                            learun.clientdata.getAsync('department', {
                                 key: value,
                                 callback: function (item, op) {
                                     op.obj.val(item.name);

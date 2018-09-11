@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.04.11
  * 描 述：个人中心-修改密码	
@@ -28,7 +28,7 @@ var bootstrap = function ($, learun) {
                     return false;
                 }
                 var password = $.md5($this.val());
-                NSAYC.httpAsyncPost(top.$.rootUrl + "/UserCenter/ValidationOldPassword", { OldPassword: password }, function (res) {
+                learun.httpAsyncPost(top.$.rootUrl + "/UserCenter/ValidationOldPassword", { OldPassword: password }, function (res) {
                     if (res.code != 200) {
                         $this.parent().find('.tip').html('<div class="tip-error"><i class="fa  fa-exclamation-circle"></i>密码错误!</div>');
                     }
@@ -75,7 +75,7 @@ var bootstrap = function ($, learun) {
                         verifyCode: formData.Verifycode
                     };
 
-                    NSAYC.layerConfirm('注：请牢记当前设置密码，您确认要修改密码？', function (res, index) {
+                    learun.layerConfirm('注：请牢记当前设置密码，您确认要修改密码？', function (res, index) {
                         if (res) {
                             $.lrSaveForm(top.$.rootUrl + '/UserCenter/SubmitResetPassword', postData, function (res) {
                                 if (res.code == 200) {

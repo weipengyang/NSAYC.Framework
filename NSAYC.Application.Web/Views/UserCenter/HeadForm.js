@@ -1,8 +1,8 @@
 ﻿
 
 /*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 爱养车开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海爱养车信息技术有限公司
  * 创建人：爱养车-前端开发组
  * 日 期：2017.04.11
  * 描 述：个人中心-我的头像	
@@ -12,7 +12,7 @@ var baseinfo;
 var bootstrap = function ($, learun) {
     "use strict";
     var getBaseinfo = function (callback) {
-        baseinfo = NSAYC.frameTab.currentIframe().baseinfo;
+        baseinfo = learun.frameTab.currentIframe().baseinfo;
         if (!baseinfo) {
             setTimeout(function () { getBaseinfo(callback) }, 100);
         }
@@ -42,17 +42,17 @@ var bootstrap = function ($, learun) {
                 var f = document.getElementById('uploadFile').files[0];
                 if (!!f)
                 {
-                    NSAYC.loading(true, '正在保存...');
+                    learun.loading(true, '正在保存...');
                     $.ajaxFileUpload({
                         url: "/UserCenter/UploadFile",
                         secureuri: false,
                         fileElementId: 'uploadFile',
                         dataType: 'json',
                         success: function (data) {
-                            NSAYC.loading(false);
+                            learun.loading(false);
                             $('#uploadFile').on('change', uploadImg);
                             if (data.code == 200) {
-                                NSAYC.alert.success('保存成功');
+                                learun.alert.success('保存成功');
                             }
                         }
                     });

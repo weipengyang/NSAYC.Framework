@@ -8,7 +8,7 @@
     <meta name="renderer" content="webkit">
     <link rel="icon" href="~/favicon.ico">
 
-    <title>@ViewBag.Title|力软信息|快速开发平台|Learun敏捷开发框架</title>
+    <title>@ViewBag.Title|爱养车信息|快速开发平台|NSAYC.敏捷开发框架</title>
     <link href="~/Content/font/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/jquery/plugin/scrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
@@ -16,16 +16,16 @@
 
 
     @Html.AppendCssFile(
-    "/Views/Content/style/lr-common.css",
-    "/Views/Content/style/lr-iframe-form.css",
+    "/Views/LR_Content/style/lr-common.css",
+    "/Views/LR_Content/style/lr-iframe-form.css",
     
-    "/Views/Content/plugin/wizard/wizard.css",       
-    "/Views/Content/plugin/tree/lr-tree.css",
-    "/Views/Content/plugin/select/lr-select.css",
-    "/Views/Content/plugin/timeline/lr-timeline.css",
-    "/Views/Content/plugin/formselect/lr-formselect.css",
-    "/Views/Content/plugin/inputsearch/lr-isearch.css",
-     "/Views/Content/plugin/uploader/lr-uploader.css"
+    "/Views/LR_Content/plugin/wizard/wizard.css",       
+    "/Views/LR_Content/plugin/tree/lr-tree.css",
+    "/Views/LR_Content/plugin/select/lr-select.css",
+    "/Views/LR_Content/plugin/timeline/lr-timeline.css",
+    "/Views/LR_Content/plugin/formselect/lr-formselect.css",
+    "/Views/LR_Content/plugin/inputsearch/lr-isearch.css",
+     "/Views/LR_Content/plugin/uploader/lr-uploader.css"
     )
     <script src="~/Content/jquery/jquery-1.10.2.min.js"></script>
     <script src="~/Content/jquery/jquery.md5.min.js"></script>
@@ -47,15 +47,15 @@
 
     @RenderBody()
     @Html.AppendJsFile(
-    "/Views/Content/script/lr-validator.js",
-    "/Views/Content/script/lr-form.js",
-    "/Views/Content/plugin/wizard/wizard.js",
-    "/Views/Content/plugin/tree/lr-tree.js",
-    "/Views/Content/plugin/select/lr-select.js",
-    "/Views/Content/plugin/timeline/lr-timeline.js",
-    "/Views/Content/plugin/formselect/lr-formselect.js",
-    "/Views/Content/plugin/inputsearch/lr-isearch.js",
-    "/Views/Content/plugin/uploader/lr-uploader.js"
+    "/Views/LR_Content/script/lr-validator.js",
+    "/Views/LR_Content/script/lr-form.js",
+    "/Views/LR_Content/plugin/wizard/wizard.js",
+    "/Views/LR_Content/plugin/tree/lr-tree.js",
+    "/Views/LR_Content/plugin/select/lr-select.js",
+    "/Views/LR_Content/plugin/timeline/lr-timeline.js",
+    "/Views/LR_Content/plugin/formselect/lr-formselect.js",
+    "/Views/LR_Content/plugin/inputsearch/lr-isearch.js",
+    "/Views/LR_Content/plugin/uploader/lr-uploader.js"
     )
     <script>
     $.lrToken = $('@Html.AntiForgeryToken()').val();

@@ -1,6 +1,6 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
  * 创建人：力 软-前端开 发组
  * 日 期：2017.03.22
  * 描 述：自定义表单组件
@@ -27,7 +27,7 @@
         var dtStart = this;
         if (typeof dtEnd == 'string')//如果是字符串转换为日期型  
         {
-            dtEnd = NSAYC.parseDate(dtEnd);
+            dtEnd = learun.parseDate(dtEnd);
         }
         switch (strInterval) {
             case 's': return parseInt((dtEnd - dtStart) / 1000);
@@ -406,7 +406,7 @@
                 var $compont = $('<div class="radio"></div>');
                 /*获取数据字典或者数据源数据*/
                 if (compont.dataSource == '0') {
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: compont.itemCode,
                         callback: function (dataes) {
                             $.each(dataes, function (id, item) {
@@ -418,7 +418,7 @@
                 }
                 else {
                     var vlist = compont.dataSourceId.split(',');
-                    NSAYC.clientdata.getAllAsync('sourceData', {
+                    learun.clientdata.getAllAsync('sourceData', {
                         code: vlist[0],
                         callback: function (data) {
                             $.each(data, function (id, item) {
@@ -435,7 +435,7 @@
                 var $compont = $('<div class="radio"></div>');
                 /*获取数据字典或者数据源数据*/
                 if (compont.dataSource == '0') {
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: compont.itemCode,
                         callback: function (dataes) {
                             $.each(dataes, function (id, item) {
@@ -447,7 +447,7 @@
                 }
                 else {
                     var vlist = compont.dataSourceId.split(',');
-                    NSAYC.clientdata.getAllAsync('sourceData', {
+                    learun.clientdata.getAllAsync('sourceData', {
                         code: vlist[0],
                         callback: function (data) {
                             $.each(data, function (id, item) {
@@ -501,7 +501,7 @@
                 var $compont = $('<div class="checkbox"></div>');
                 /*获取数据字典或者数据源数据*/
                 if (compont.dataSource == '0') {
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: compont.itemCode,
                         callback: function (dataes) {
                             $.each(dataes, function (id, item) {
@@ -513,7 +513,7 @@
                 }
                 else {
                     var vlist = compont.dataSourceId.split(',');
-                    NSAYC.clientdata.getAllAsync('sourceData', {
+                    learun.clientdata.getAllAsync('sourceData', {
                         code: vlist[0],
                         callback: function (data) {
                             $.each(data, function (id, item) {
@@ -531,7 +531,7 @@
                 var $compont = $('<div class="checkbox"></div>');
                 /*获取数据字典或者数据源数据*/
                 if (compont.dataSource == '0') {
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: compont.itemCode,
                         callback: function (dataes) {
                             $.each(data, function (id, item) {
@@ -543,7 +543,7 @@
                 }
                 else {
                     var vlist = compont.dataSourceId.split(',');
-                    NSAYC.clientdata.getAllAsync('sourceData', {
+                    learun.clientdata.getAllAsync('sourceData', {
                         code: vlist[0],
                         callback: function (data) {
                             $.each(data, function (id, item) {
@@ -719,7 +719,7 @@
                         datedefault = datetime.DateAdd('d', 1);;
                         break;
                 }
-                datedefault = NSAYC.formatDate(datedefault, dateformat.replace(/H/g, 'h'));
+                datedefault = learun.formatDate(datedefault, dateformat.replace(/H/g, 'h'));
                 var $compont = $('<input value="' + datedefault + '" id="' + compont.id + '"    " onClick="WdatePicker({dateFmt:\'' + dateformat + '\',qsEnabled:false,isShowClear:false,isShowOK:false,isShowToday:false,onpicked:function(){$(\'#' + compont.id + '\').trigger(\'change\');}})"  type="text" class="form-control lr-input-wdatepicker" />');
                 $row.append($compont);
                 return $compont;
@@ -792,7 +792,7 @@
                             var st = $(this).val();
                             var et = $('#' + compont.endTime).val();
                             if (!!st && !!et) {
-                                var diff = NSAYC.parseDate(st).DateDiff('d', et) + 1;
+                                var diff = learun.parseDate(st).DateDiff('d', et) + 1;
                                 $compont.val(diff);
                             }
                         });
@@ -800,7 +800,7 @@
                             var st = $('#' + compont.startTime).val();
                             var et = $(this).val();
                             if (!!st && !!et) {
-                                var diff = NSAYC.parseDate(st).DateDiff('d', et) + 1;
+                                var diff = learun.parseDate(st).DateDiff('d', et) + 1;
                                 $compont.val(diff);
                             }
                         });
@@ -873,7 +873,7 @@
                     });
                 }
                 else {
-                    NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/CodeRule/GetList', {}, function (data) {
+                    learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/CodeRule/GetList', {}, function (data) {
                         ruleCode = data;
                         $('#lr_component_rulecode').lrselectRefresh({
                             data: ruleCode
@@ -884,7 +884,7 @@
             },
             renderTable: function (compont, $row) {//使用表单的时候渲染成table
                 var $compont = $('<input id="' + compont.id + '" type="text" readonly class="form-control" />');
-                NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/CodeRule/GetEnCode', { code: compont.rulecode }, function (data) {
+                learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/CodeRule/GetEnCode', { code: compont.rulecode }, function (data) {
                     if (!$compont.val()) {
                         $compont.val(data);
                     }
@@ -1028,7 +1028,7 @@
                                         }
                                         else {
                                             $compont.lrselectRefresh({
-                                                url: top.$.rootUrl + '/OrganizationModule/User/GetList',
+                                                url: top.$.rootUrl + '/LR_OrganizationModule/User/GetList',
                                                 param: { departmentId: value }
                                             });
                                         }
@@ -1042,10 +1042,10 @@
                         }
                         else {
                             $compont.lrformselect({
-                                layerUrl: top.$.rootUrl + '/OrganizationModule/User/SelectOnlyForm',
+                                layerUrl: top.$.rootUrl + '/LR_OrganizationModule/User/SelectOnlyForm',
                                 layerUrlW: 400,
                                 layerUrlH: 300,
-                                dataUrl: top.$.rootUrl + '/OrganizationModule/User/GetListByUserIds'
+                                dataUrl: top.$.rootUrl + '/LR_OrganizationModule/User/GetListByUserIds'
                             });
                         }
                         break;
@@ -1063,7 +1063,7 @@
                                     $('#' + compont.relation).on('change', function () {
                                         var value = $(this).lrselectGet();
                                         $compont.lrselectRefresh({
-                                            url: top.$.rootUrl + '/OrganizationModule/Department/GetTree',
+                                            url: top.$.rootUrl + '/LR_OrganizationModule/Department/GetTree',
                                             param: { companyId: value }
                                         });
                                     });
@@ -1076,7 +1076,7 @@
                         }
                         else {
                             $compont.lrselectRefresh({
-                                url: top.$.rootUrl + '/OrganizationModule/Department/GetTree',
+                                url: top.$.rootUrl + '/LR_OrganizationModule/Department/GetTree',
                                 param: {}
                             });
                         }                        
@@ -1093,10 +1093,10 @@
                 switch (compont.dataType) {
                     case "user"://用户
                         $compont.lrformselect({
-                            layerUrl: top.$.rootUrl + '/OrganizationModule/User/SelectOnlyForm',
+                            layerUrl: top.$.rootUrl + '/LR_OrganizationModule/User/SelectOnlyForm',
                             layerUrlW: 400,
                             layerUrlH: 300,
-                            dataUrl: top.$.rootUrl + '/OrganizationModule/User/GetListByUserIds'
+                            dataUrl: top.$.rootUrl + '/LR_OrganizationModule/User/GetListByUserIds'
                         });
                         break;
                     case "department"://部门
@@ -1109,7 +1109,7 @@
                         });
 
                         $compont.lrselectRefresh({
-                            url: top.$.rootUrl + '/OrganizationModule/Department/GetTree',
+                            url: top.$.rootUrl + '/LR_OrganizationModule/Department/GetTree',
                             param: {}
                         });
                         break;
@@ -1176,12 +1176,12 @@
             },
             renderTable: function (compont, $row) {
                 var $compont = $('<input id="' + compont.id + '" readonly type="text"  class="form-control lr-currentInfo lr-currentInfo-' + compont.dataType + '" />');
-                var loginInfo = NSAYC.clientdata.get(['userinfo']);
+                var loginInfo = learun.clientdata.get(['userinfo']);
                 switch (compont.dataType)
                 {
                     case 'company':
                         $compont[0].lrvalue = loginInfo.companyId;
-                        NSAYC.clientdata.getAsync('company', {
+                        learun.clientdata.getAsync('company', {
                             key: loginInfo.companyId,
                             callback: function (_data) {
                                 $compont.val(_data.F_FullName);
@@ -1190,7 +1190,7 @@
                         break;
                     case 'department':
                         $compont[0].lrvalue = loginInfo.departmentId;
-                        NSAYC.clientdata.getAsync('department', {
+                        learun.clientdata.getAsync('department', {
                             key: loginInfo.departmentId,
                             companyId: loginInfo.companyId,
                             callback: function (item) {
@@ -1203,11 +1203,11 @@
                         $compont[0].lrvalue = loginInfo.userId;
                         break;
                     case 'time':
-                        $compont[0].lrvalue = NSAYC.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss');
+                        $compont[0].lrvalue = learun.formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss');
                         $compont.val($compont[0].lrvalue);
                         break;
                     case 'guid':
-                        $compont[0].lrvalue = NSAYC.newGuid();
+                        $compont[0].lrvalue = learun.newGuid();
                         $compont.val($compont[0].lrvalue);
                         break;
                 }
@@ -1240,7 +1240,7 @@
             },
             renderTable: function (compont, $row) {
                 var $compont = $('<input id="' + compont.id + '" readonly type="text"  class="form-control lr-currentInfo lr-currentInfo-guid" />');
-                $compont[0].lrvalue = NSAYC.newGuid();
+                $compont[0].lrvalue = learun.newGuid();
                 $compont.val($compont[0].lrvalue);
                 $row.hide();
                 $row.append($compont);
@@ -1401,10 +1401,10 @@
                         tableName: dfop.table,
                         dbId: designerDfop.dbId
                     };
-                    NSAYC.layerForm({
+                    learun.layerForm({
                         id: 'custmerForm_editgrid_index',
                         title: '编辑表格选项',
-                        url: top.$.rootUrl + '/FormModule/Custmerform/SetFieldIndex?keyValue=formGridSetting',
+                        url: top.$.rootUrl + '/LR_FormModule/Custmerform/SetFieldIndex?keyValue=formGridSetting',
                         width: 700,
                         height: 500,
                         maxmin: true,
@@ -1434,7 +1434,7 @@
                 }).lrselectSet(dfop.preloadTable);
                 // 数据库表选择
                 $('#lr_component_ydb').lrselect({
-                    url: top.$.rootUrl + '/SystemModule/DatabaseLink/GetTreeList',
+                    url: top.$.rootUrl + '/LR_SystemModule/DatabaseLink/GetTreeList',
                     type: 'tree',
                     placeholder: '请选择数据库',
                     allowSearch: true,
@@ -1449,7 +1449,7 @@
                         else {
                             dfop.preloadDb = item.id;
                             $('#lr_component_ytable').lrselectRefresh({
-                                url: top.$.rootUrl + '/SystemModule/DatabaseTable/GetList',
+                                url: top.$.rootUrl + '/LR_SystemModule/DatabaseTable/GetList',
                                 param: { databaseLinkId: dfop.preloadDb },
                                 data: null,
                             });
@@ -1469,7 +1469,7 @@
                         headData: headData,
                         isAutoHeight: true
                     });
-                    NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/DatabaseTable/GetTableDataAllList', { databaseLinkId: compont.preloadDb, tableName: compont.preloadTable }, function (data) {
+                    learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/DatabaseTable/GetTableDataAllList', { databaseLinkId: compont.preloadDb, tableName: compont.preloadTable }, function (data) {
                         if ($compont.jfGridGet('rowdatas').length < 1) {
                             var fieldMap = {};
                             $.each(compont.fieldsData, function (id, girdFiled) {
@@ -1583,7 +1583,7 @@
                         });
                     }
                     else {
-                        NSAYC.httpAsync('GET', top.$.rootUrl + '/SystemModule/DatabaseTable/GetFieldList', { databaseLinkId: designerDfop.dbId, tableName: item.name }, function (data) {
+                        learun.httpAsync('GET', top.$.rootUrl + '/LR_SystemModule/DatabaseTable/GetFieldList', { databaseLinkId: designerDfop.dbId, tableName: item.name }, function (data) {
                             fieldMap[designerDfop.dbId + item.name] = data;
                             $('#lr_component_field').lrselectRefresh({
                                 data: fieldMap[designerDfop.dbId + item.name]
@@ -1691,7 +1691,7 @@
         $('#lr_component_dataItemCode').lrselect({
             allowSearch: true,
             maxHeight: 150,
-            url: top.$.rootUrl + '/SystemModule/DataItem/GetClassifyTree',
+            url: top.$.rootUrl + '/LR_SystemModule/DataItem/GetClassifyTree',
             type: 'tree',
             select: function (item) {
                 if (!!item) {
@@ -1700,7 +1700,7 @@
                         dfop.dataSourceId = item.id;
                         dfop.itemCode = item.value;
                     }
-                    NSAYC.clientdata.getAllAsync('dataItem', {
+                    learun.clientdata.getAllAsync('dataItem', {
                         code: item.value,
                         callback: function (dataes) {
                             var list = [];
@@ -1729,10 +1729,10 @@
 
         $('#lr_component_dataSourceId').lrformselect({
             placeholder: '请选择数据源项',
-            layerUrl: top.$.rootUrl + '/SystemModule/DataSource/SelectForm',
+            layerUrl: top.$.rootUrl + '/LR_SystemModule/DataSource/SelectForm',
             layerUrlH: 500,
             layerUrlW: 800,
-            dataUrl: top.$.rootUrl + '/SystemModule/DataSource/GetNameByCode',
+            dataUrl: top.$.rootUrl + '/LR_SystemModule/DataSource/GetNameByCode',
             select: function (item) {
                 if (dfop.dataSourceId != item.value) {
                     dfop.dfvalue = '';
@@ -1743,7 +1743,7 @@
                 }
                 else {
                     var vlist = item.value.split(',');
-                    NSAYC.clientdata.getAllAsync('sourceData', {
+                    learun.clientdata.getAllAsync('sourceData', {
                         code: vlist[0],
                         callback: function (dataes) {
                             $('#lr_component_dfvalue').lrselectRefresh({
@@ -1806,7 +1806,7 @@
             var item = data[i];
             var isAdd = true;
             //表头信息设置
-            var point = { id: item.id, label: item.name, name: item.field || NSAYC.newGuid(), width: parseInt(item.width), align: item.align || "left", editType: item.type };
+            var point = { id: item.id, label: item.name, name: item.field || learun.newGuid(), width: parseInt(item.width), align: item.align || "left", editType: item.type };
             if (item.type == 'guid') {// 如果是固定信息
                 hideData.push(item);
                 isAdd = false;
@@ -1821,11 +1821,11 @@
                 }
                 var url = '', param = '';
                 if (item.dataSource == '0') { // 0 数据字典 1 数据源
-                    url = top.$.rootUrl + '/SystemModule/DataItem/GetDetailList';
+                    url = top.$.rootUrl + '/LR_SystemModule/DataItem/GetDetailList';
                     param = { itemCode: item.dataItemCode };
                 }
                 else {
-                    url = top.$.rootUrl + '/SystemModule/DataSource/GetDataTable';
+                    url = top.$.rootUrl + '/LR_SystemModule/DataSource/GetDataTable';
                     param = { code: item.dataSourceId };
                 }
                 point.editOp = {

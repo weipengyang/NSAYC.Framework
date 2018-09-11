@@ -1,7 +1,7 @@
 ﻿/*
- * 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架(http://www.NSAYC.cn)
- * Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
- * 创建人：爱养车-前端开发组
+ * 版 本 Learun-ADMS V6.1.6.0 力软敏捷开发框架(http://www.learun.cn)
+ * Copyright (c) 2013-2017 上海力软信息技术有限公司
+ * 创建人：力软-前端开发组
  * 日 期：2017.03.22
  * 描 述：workflow-ui 工作流绘制组件	
  */
@@ -219,18 +219,18 @@
                 if (type == 'startround') {
                     name = "开始";
                     if (dfop.hasStartround) {
-                        NSAYC.alert.error('只能有一个开始节点');
+                        learun.alert.error('只能有一个开始节点');
                         return false;
                     }
                 }
                 if (type == 'endround') {
                     name = "结束";
                     if (dfop.hasEndround) {
-                        NSAYC.alert.error('只能有一个结束节点');
+                        learun.alert.error('只能有一个结束节点');
                         return false;
                     }
                 }
-                $.lrworkflow.addNode($this, dfop, { id: NSAYC.newGuid(), name: name, left: X, top: Y, type: type });
+                $.lrworkflow.addNode($this, dfop, { id: learun.newGuid(), name: name, left: X, top: Y, type: type });
             }
         },
         // 取消所有结点/连线被选定的状态
@@ -708,7 +708,7 @@
                     else if ($this.hasClass('bottom')) {
                         position = 'bottom';
                     }
-                    if (lineStart) $.lrworkflow.addLine(dfop, { id: NSAYC.newGuid(), from: lineStart.id, to: nodeData.id, sp: lineStart.position, ep: position, name: "" });
+                    if (lineStart) $.lrworkflow.addLine(dfop, { id: learun.newGuid(), from: lineStart.id, to: nodeData.id, sp: lineStart.position, ep: position, name: "" });
                 });
                 //绑定结点的删除功能
                 $workArea.delegate(".lr-workflow-nodeclose", "click", function () {

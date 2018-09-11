@@ -9,8 +9,8 @@ using System.Web.Mvc;
 namespace NSAYC.Application.Web
 {
     /// <summary>
-    /// 版 本 NSAYCFrameWork V1.1.0 爱养车开发框架
-    /// Copyright (c) 2013-2017 广州市爱养车汽车服务有限公司
+    /// 爱养车开发框架
+    /// Copyright (c) 2013-2017 上海爱养车信息技术有限公司
     /// 创建人：爱养车-框架开发组
     /// 日 期：2017.03.08
     /// 描 述：错误日志（Controller发生异常时会执行这里） 
@@ -33,10 +33,10 @@ namespace NSAYC.Application.Web
             base.OnException(context);
             context.ExceptionHandled = true;
             context.HttpContext.Response.StatusCode = 200;
-            string msg = "Learun敏捷框架提醒您：" + context.Exception.Message;
-            if (msg == "Learun敏捷框架提醒您：所需的防伪表单字段“__RequestVerificationToken”不存在。")
+            string msg = "NSAYC.敏捷框架提醒您：" + context.Exception.Message;
+            if (msg == "NSAYC.敏捷框架提醒您：所需的防伪表单字段“__RequestVerificationToken”不存在。")
             {
-                msg = "系统貌似出问题了，可联系力软官方敏捷框架售后人员。";
+                msg = "系统貌似出问题了，可联系爱养车官方敏捷框架售后人员。";
             }
             context.Result = new ContentResult { Content = new ResParameter { code = ResponseCode.exception, info = msg }.ToJson() };
         }
@@ -104,7 +104,7 @@ namespace NSAYC.Application.Web
             {
                 string SystemName = Config.GetValue("SystemName");//系统名称
                 string recMail = Config.GetValue("RereceiveErrorMail");//接收错误信息邮箱
-                MailHelper.Send("receivebug@NSAYC.cn", SystemName + " - 发生异常", body.Replace("-", ""));
+                MailHelper.Send("receivebug@learun.cn", SystemName + " - 发生异常", body.Replace("-", ""));
             }
         }
     }

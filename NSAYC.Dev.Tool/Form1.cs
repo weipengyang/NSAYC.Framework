@@ -7,9 +7,9 @@ using Yahoo.Yui.Compressor;
 
 namespace NSAYC.Dev.Tool
 {
-    public partial class 力软开发小工具 : Form
+    public partial class 爱养车开发小工具 : Form
     {
-        public 力软开发小工具()
+        public 爱养车开发小工具()
         {
             InitializeComponent();
         }
