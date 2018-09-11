@@ -45,7 +45,7 @@ var loaddfimg;
                 "hideMethod": "fadeOut"
             };
             // 打开首页模板
-            learun.frameTab.open({ F_ModuleId: '0', F_Icon: 'fa fa-desktop', F_FullName: '首页模板', F_UrlAddress: '/Home/AdminDesktopTemp' }, true);
+            learun.frameTab.open({ F_ModuleId: '0', F_Icon: 'fa fa-desktop', F_FullName: '首页', F_UrlAddress: '/Home/AdminDesktopTemp' }, true);
             learun.clientdata.init(function () {
                 page.userInit();
                 // 初始页面特例

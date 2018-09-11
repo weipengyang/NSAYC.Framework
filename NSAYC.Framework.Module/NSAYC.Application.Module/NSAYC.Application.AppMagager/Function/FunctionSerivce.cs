@@ -54,7 +54,7 @@ namespace NSAYC.Application.AppMagager
                 var strSql = new StringBuilder();
                 strSql.Append("SELECT ");
                 strSql.Append(sql);
-                strSql.Append(" FROM LR_App_Function t");
+                strSql.Append(" FROM LR_App_Function t where 1=1 ");
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
@@ -65,7 +65,7 @@ namespace NSAYC.Application.AppMagager
                 {
                     strSql.Append(" AND t.F_Type = @type ");
                 }
-                return this.BaseRepository().FindList<FunctionEntity>(strSql.ToString(), new { keyword = keyword, category = type }, pagination);
+                return this.BaseRepository().FindList<FunctionEntity>(strSql.ToString(), new { keyword = keyword, type = type }, pagination);
             }
             catch (Exception ex)
             {
